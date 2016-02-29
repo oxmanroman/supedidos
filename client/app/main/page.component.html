@@ -1,0 +1,74 @@
+<section class="banner" layout-padding>
+    <div class="nav-bar clearfix">
+        <md-button class="flr">Iniciar Sesión</md-button>
+        <md-button class="flr">Registrarse</md-button>
+    </div>
+
+    <div class="info max-size">
+        <h1 class="title md-display-1">Lo que necesites, a tu casa, en minutos</h1>
+        <span class="subtitle md-headline">Más de 3000 mercados con delivery en Argentina</span>
+
+        <div class="finder" layout-gt-sm="row" md-whiteframe="1">
+            <md-input-container class="md-block fixed-height" md-no-float flex-gt-sm>
+                <input placeholder="Tu ciudad" ng-model="ctrl.finder.city">
+            </md-input-container>
+            <md-input-container class="md-block fixed-height" md-no-float flex-gt-sm>
+                <input placeholder="Tu dirección" ng-model="ctrl.finder.address">
+            </md-input-container>
+            <md-input-container class="md-block fixed-height" md-no-float flex-gt-sm>
+                <input placeholder="Servicio" ng-model="ctrl.finder.service">
+            </md-input-container>
+            <md-button class="md-raised md-primary">Buscar</md-button>
+        </div>
+
+    </div>
+</section>
+
+<div class="bk-white">
+    <section class="instructions pad-large max-size">
+        <h2 class="md-headline mar-t-0 mar-b-30">Pedir para llevar nunca fue tán fácil</h2>
+        <div layout-gt-sm="row">
+            <div class="step" flex-gt-sm>
+                <i class="mdi mdi-format-list-bulleted"></i>
+                <h3 class="title md-title">Elegí</h3>
+                <span>Buscá tu lugar favorito y elegí los productos que buscas</span>
+            </div>
+            <div class="step" flex-gt-sm>
+                <i class="mdi mdi-food-variant"></i>
+                <h3 class="title md-title">Hace tu pedido</h3>
+                <span>Realizá el pedido y recibí la confirmación del lugar</span>
+            </div>
+            <div class="step" flex-gt-sm>
+                <i class="mdi mdi-home"></i>
+                <h3 class="title md-title">Recibilo en tu casa</h3>
+                <span>No te muevas del sillón, esperá a que tu pedido venga a vos</span>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="popular-places pad-large max-size">
+    <h2 class="md-headline mar-t-0 mar-b-30">
+        Lugares populares en <a class="link">{{ctrl.finder.city}}</a>
+    </h2>
+
+    <div class="places" layout="row" layout-wrap>
+        <div ng-repeat="place in ::ctrl.places | limitTo: 9"
+            class="grid-container"
+            dy-relevant-cols
+            x-min-cols="2"
+            x-max-cols="4">
+
+            <div class="dy-card" md-whiteframe="1" dy-whiteframe-elevate="3">
+                <div class="header" dy-back-img="">
+                    <div class="info">
+                        <span class="name">{{::place.name}}</span>
+                        <dy-stars-rating x-score="::place.rating"></dy-stars-rating>
+                    </div>
+                </div>
+                <div class="description pad">{{::place.description | ellipsis: 140}}</div>
+            </div>
+
+        </div>
+    </div>
+</section>
