@@ -1,16 +1,16 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/things              ->  index
- * POST    /api/things              ->  create
- * GET     /api/things/:id          ->  show
- * PUT     /api/things/:id          ->  update
- * DELETE  /api/things/:id          ->  destroy
+ * GET     /api/markets              ->  index
+ * POST    /api/markets              ->  create
+ * GET     /api/markets/:id          ->  show
+ * PUT     /api/markets/:id          ->  update
+ * DELETE  /api/markets/:id          ->  destroy
  */
 
 'use strict';
 
 import _ from 'lodash';
-var Thing = require('./thing.model');
+var Market = require('./market.model');
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -59,43 +59,43 @@ function removeEntity(res) {
   };
 }
 
-// Gets a list of Things
+// Gets a list of Markets
 export function index(req, res) {
-  Thing.findAsync()
+  Market.findAsync()
     .then(responseWithResult(res))
     .catch(handleError(res));
 }
 
-// Gets a single Thing from the DB
+// Gets a single Market from the DB
 export function show(req, res) {
-  Thing.findByIdAsync(req.params.id)
+  Market.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(responseWithResult(res))
     .catch(handleError(res));
 }
 
-// Creates a new Thing in the DB
+// Creates a new Market in the DB
 export function create(req, res) {
-  Thing.createAsync(req.body)
+  Market.createAsync(req.body)
     .then(responseWithResult(res, 201))
     .catch(handleError(res));
 }
 
-// Updates an existing Thing in the DB
+// Updates an existing Market in the DB
 export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  Thing.findByIdAsync(req.params.id)
+  Market.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(responseWithResult(res))
     .catch(handleError(res));
 }
 
-// Deletes a Thing from the DB
+// Deletes a Market from the DB
 export function destroy(req, res) {
-  Thing.findByIdAsync(req.params.id)
+  Market.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));

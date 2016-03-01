@@ -1,12 +1,13 @@
 (function() {
    'use strict';
 
-    var appConfig = function($urlRouterProvider, $locationProvider) {
+   angular
+       .module('deliveryYa')
+       .config(appConfig);
+
+    function appConfig($urlRouterProvider, $locationProvider) {
         $urlRouterProvider.otherwise('/');
         $locationProvider.html5Mode(true);
-    };
+    }
 
-    angular
-        .module('deliveryYa')
-        .config(appConfig);
 })();

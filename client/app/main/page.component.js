@@ -31,16 +31,18 @@
 		};
 	}
 
-	mainPageController.$inject = [];
+	mainPageController.$inject = ['envConfig'];
 
-	function mainPageController() {
+	function mainPageController(envConfig) {
 		var ctrl = this;
+
+		ctrl.country = envConfig.country;
 
 		ctrl.finder = {
 			city: ctrl.location.city
 		};
 
-		var demo = {
+		var place = {
 			name: 'Súper chino',
 			/*jshint multistr: true */
 			description: 'Súpermercado de las cadenas más grandes de súpers de latino-américa, \
@@ -48,10 +50,21 @@
 			rating: 3.5
 		};
 		ctrl.places = [];
-		for (var i = 0; i < 15; i++) {
-			var demoI = angular.copy(demo);
-			demoI.id = i;
-			ctrl.places[i] = demoI;
+		for (var placeI = 0; placeI < 9; placeI++) {
+			var placeDemoI = angular.copy(place);
+			placeDemoI.id = placeI;
+			ctrl.places[placeI] = placeDemoI;
+		}
+
+		var service = {
+			name: 'Súpermercado',
+			description: 'Todo lo que necesites al alcance de tu mano'
+		};
+		ctrl.services = [];
+		for (var serviceI = 0; serviceI < 7; serviceI++) {
+			var serviceDemoI = angular.copy(service);
+			serviceDemoI.id = serviceI;
+			ctrl.services[serviceI] = serviceDemoI;
 		}
 
 	}

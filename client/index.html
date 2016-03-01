@@ -60,33 +60,25 @@
       <script src="bower_components/angular-aria/angular-aria.js"></script>
       <script src="bower_components/angular-messages/angular-messages.js"></script>
       <script src="bower_components/angular-material/angular-material.js"></script>
+      <script src="bower_components/angular-translate/angular-translate.js"></script>
+      <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.tmp) app/app.js -->
       <script src="app/app.js"></script>
       <!-- injector:js -->
-      <script src="components/auth/auth.module.js"></script>
-      <script src="components/util/util.module.js"></script>
-      <script src="components/auth/interceptor.service.js"></script>
+      <script src="app/common/services/geolocation.service.js"></script>
+      <script src="app/common/components/stars-rating.component.js"></script>
+      <script src="app/common/directives/relevant-cols.directive.js"></script>
+      <script src="app/common/directives/whiteframe-elevate.directive.js"></script>
       <script src="app/common/filters/ellipsis.filter.js"></script>
       <script src="app/common/services/external-script.service.js"></script>
-      <script src="app/common/services/geolocation.service.js"></script>
+      <script src="app/common/directives/flexible-flex.directive.js"></script>
+      <script src="app/config/env.js"></script>
       <script src="app/config/routes.js"></script>
+      <script src="app/config/translate.js"></script>
       <script src="app/main/main.routes.js"></script>
       <script src="app/main/page.component.js"></script>
-      <script src="app/common/components/stars-rating.component.js"></script>
-      <script src="components/auth/auth.service.js"></script>
-      <script src="app/common/directives/relevant-cols.directive.js"></script>
-      <script src="components/auth/router.decorator.js"></script>
-      <script src="components/auth/user.service.js"></script>
-      <script src="components/footer/footer.directive.js"></script>
-      <script src="components/mongoose-error/mongoose-error.directive.js"></script>
-      <script src="components/navbar/navbar.controller.js"></script>
-      <script src="components/navbar/navbar.directive.js"></script>
-      <script src="components/oauth-buttons/oauth-buttons.controller.js"></script>
-      <script src="components/oauth-buttons/oauth-buttons.directive.js"></script>
-      <script src="app/common/directives/whiteframe-elevate.directive.js"></script>
-      <script src="components/util/util.service.js"></script>
       <!-- endinjector -->
     <!-- endbuild -->
   </body>

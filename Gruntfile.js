@@ -2,6 +2,9 @@
 'use strict';
 
 module.exports = function (grunt) {
+
+  grunt.loadNpmTasks('grunt-merge-json');
+
   var localConfig;
   try {
     localConfig = require('./server/config/local.env');
@@ -17,8 +20,8 @@ module.exports = function (grunt) {
     cdnify: 'grunt-google-cdn',
     protractor: 'grunt-protractor-runner',
     buildcontrol: 'grunt-build-control',
-    istanbul_check_coverage: 'grunt-mocha-istanbul'
-    // ngconstant: 'grunt-ng-constant'
+    istanbul_check_coverage: 'grunt-mocha-istanbul',
+    ngconstant: 'grunt-ng-constant'
   });
 
   // Time how long tasks take. Can help when optimizing build times
@@ -61,10 +64,14 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.client %>/{app,components}/**/!(*.spec|*.mock).js'],
         tasks: ['newer:babel:client']
       },
-    //   ngconstant: {
-    //     files: ['<%= yeoman.server %>/config/environment/shared.js'],
-    //     tasks: ['ngconstant']
-    //   },
+      ngconstant: {
+        files: ['config.env.json'],
+        tasks: ['ngconstant']
+      },
+      'merge-json': {
+        files: ['<%= yeoman.client %>/lang/**/*.json'],
+        tasks: ['merge-json']
+      },
       injectJS: {
         files: [
           '<%= yeoman.client %>/{app,components}/**/!(*.spec|*.mock).js',
@@ -296,24 +303,32 @@ module.exports = function (grunt) {
       }
     },
 
-    // Dynamically generate angular constant `appConfig` from
+    // Dynamically generate angular constant `envConfig` from
     // `server/config/environment/shared.js`
-    // ngconstant: {
-    //   options: {
-    //     name: 'sitesApp.constants',
-    //     dest: '<%= yeoman.client %>/app/app.constant.js',
-    //     deps: [],
-    //     wrap: true,
-    //     configPath: '<%= yeoman.server %>/config/environment/shared'
-    //   },
-    //   app: {
-    //     constants: function() {
-    //       return {
-    //         appConfig: require('./' + grunt.config.get('ngconstant.options.configPath'))
-    //       };
-    //     }
-    //   }
-    // },
+    ngconstant: {
+      options: {
+        name: 'deliveryYa',
+        dest: '<%= yeoman.client %>/app/config/env.js',
+        deps: false,
+        wrap: true,
+        configPath: 'config.env'
+      },
+      app: {
+        constants: function() {
+          return {
+            envConfig: grunt.file.readJSON('config.env.json')
+          };
+        }
+      }
+    },
+
+    'merge-json': {
+        i18n: {
+            files: {
+                '.tmp/lang/es-ar.json': [ '<%= yeoman.client %>/lang/es-ar/*.json' ]
+            }
+        }
+    },
 
     // Package all the html partials into a single javascript payload
     ngtemplates: {
@@ -414,7 +429,7 @@ module.exports = function (grunt) {
     concurrent: {
       pre: [
         'injector:less',
-        // 'ngconstant'
+        'ngconstant'
       ],
       server: [
         'newer:babel:client',
@@ -650,6 +665,7 @@ module.exports = function (grunt) {
         'concurrent:pre',
         'concurrent:server',
         'injector',
+        'merge-json',
         'wiredep:client',
         'postcss',
         'concurrent:debug'
@@ -662,6 +678,7 @@ module.exports = function (grunt) {
       'concurrent:pre',
       'concurrent:server',
       'injector',
+      'merge-json',
       'wiredep:client',
       'postcss',
       'express:dev',
@@ -692,6 +709,7 @@ module.exports = function (grunt) {
         'concurrent:pre',
         'concurrent:test',
         'injector',
+        'merge-json',
         'postcss',
         'wiredep:test',
         'karma'
@@ -718,6 +736,7 @@ module.exports = function (grunt) {
           'concurrent:pre',
           'concurrent:test',
           'injector',
+          'merge-json',
           'wiredep:client',
           'postcss',
           'express:dev',
@@ -772,6 +791,7 @@ module.exports = function (grunt) {
     'concurrent:pre',
     'concurrent:dist',
     'injector',
+    'merge-json',
     'wiredep:client',
     'useminPrepare',
     'postcss',

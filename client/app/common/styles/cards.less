@@ -1,25 +1,33 @@
-.dy-card {
+.card {
     background: white;
     cursor: pointer;
     border-radius: 2px;
     overflow: hidden;
-    .header {
-        height: 100px;
-        background: @colorMain;
-        color: white;
-        position: relative;
-        .info {
-            position: absolute;
-            left: 20px;
-            bottom: 20px;
-            .name {
-                font-weight: bold;
-                display: block;
-                margin-bottom: 5px;
+    &.place-card {
+        .header {
+            height: 100px;
+            background: @colorMain;
+            color: white;
+            position: relative;
+            .info {
+                position: absolute;
+                left: 20px;
+                bottom: 20px;
+                .name {
+                    font-weight: bold;
+                    display: block;
+                    margin-bottom: 5px;
+                }
             }
         }
+        .description {
+            color: rgba(0,0,0,.65);
+        }
     }
-    .description {
-        color: rgba(0,0,0,.65);
+
+    &.service-card {
+        height: 150px;
+        background: @colorMain;
+        color: white;
     }
 }

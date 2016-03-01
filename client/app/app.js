@@ -9,6 +9,7 @@
     var commonLibs = [
         // UI
         'ngMaterial',
+        'pascalprecht.translate',
         // Back-end
         'ngCookies',
         'ngResource',
