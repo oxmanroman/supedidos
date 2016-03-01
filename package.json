@@ -1,6 +1,6 @@
 {
-  "name": "sites",
-  "version": "0.0.0",
+  "name": "deliveryYa",
+  "version": "1.0.0",
   "main": "server/app.js",
   "dependencies": {
     "babel-runtime": "^5.8.20",

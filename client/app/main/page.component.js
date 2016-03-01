@@ -23,7 +23,8 @@
 			restrict: 'E',
 			templateUrl: '/app/main/page.component.html',
 			scope: {
-				location: '='
+				location: '=',
+				markets: '='
 			},
 			controller: mainPageController,
 			controllerAs: 'ctrl',
@@ -41,20 +42,6 @@
 		ctrl.finder = {
 			city: ctrl.location.city
 		};
-
-		var place = {
-			name: 'Súper chino',
-			/*jshint multistr: true */
-			description: 'Súpermercado de las cadenas más grandes de súpers de latino-américa, \
-			inigualable servicio y calidad.',
-			rating: 3.5
-		};
-		ctrl.places = [];
-		for (var placeI = 0; placeI < 9; placeI++) {
-			var placeDemoI = angular.copy(place);
-			placeDemoI.id = placeI;
-			ctrl.places[placeI] = placeDemoI;
-		}
 
 		var service = {
 			name: 'Súpermercado',

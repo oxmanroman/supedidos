@@ -10,32 +10,38 @@ import User from '../api/user/user.model';
 Market.find({}).removeAsync()
   .then(() => {
     Market.create({
-      name: 'Development Tools',
-      description: 'Integration with popular tools such as Bower, Grunt, Babel, Karma, ' +
-                   'Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, ' +
-                   'Stylus, Sass, and Less.'
+      name: 'Súpermercado chino',
+      description: 'El mejor súpermercado en la mejor zona, lo que quieras en tiempo record'
     }, {
-      name: 'Server and Client integration',
-      description: 'Built with a powerful and fun stack: MongoDB, Express, ' +
-                   'AngularJS, and Node.'
+      name: 'Verdulería de Juan',
+      description: 'El mejor súpermercado en la mejor zona, lo que quieras en tiempo record'
     }, {
-      name: 'Smart Build System',
-      description: 'Build system ignores `spec` files, allowing you to keep ' +
-                   'tests alongside code. Automatic injection of scripts and ' +
-                   'styles into your index.html'
+      name: 'Verdulería de Juan',
+      description: 'El mejor súpermercado en la mejor zona, lo que quieras en tiempo record'
     }, {
-      name: 'Modular Structure',
-      description: 'Best practice client and server structures allow for more ' +
-                   'code reusability and maximum scalability'
+      name: 'Verdulería de Juan',
+      description: 'El mejor súpermercado en la mejor zona, lo que quieras en tiempo record'
     }, {
-      name: 'Optimized Build',
-      description: 'Build process packs up your templates as a single JavaScript ' +
-                   'payload, minifies your scripts/css/images, and rewrites asset ' +
-                   'names for caching.'
+      name: 'Verdulería de Juan',
+      description: 'El mejor súpermercado en la mejor zona, lo que quieras en tiempo record'
     }, {
-      name: 'Deployment Ready',
-      description: 'Easily deploy your app to Heroku or Openshift with the heroku ' +
-                   'and openshift subgenerators'
+      name: 'Verdulería de Juan',
+      description: 'El mejor súpermercado en la mejor zona, lo que quieras en tiempo record'
+    }, {
+      name: 'Verdulería de Juan',
+      description: 'El mejor súpermercado en la mejor zona, lo que quieras en tiempo record'
+    }, {
+      name: 'Verdulería de Juan',
+      description: 'El mejor súpermercado en la mejor zona, lo que quieras en tiempo record'
+    }, {
+      name: 'Verdulería de Juan',
+      description: 'El mejor súpermercado en la mejor zona, lo que quieras en tiempo record'
+    }, {
+      name: 'Verdulería de Juan',
+      description: 'El mejor súpermercado en la mejor zona, lo que quieras en tiempo record'
+    }, {
+      name: 'Verdulería de Juan',
+      description: 'El mejor súpermercado en la mejor zona, lo que quieras en tiempo record'
     }).then(() => {
       console.log('finished populating markets');
     });

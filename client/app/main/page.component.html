@@ -49,26 +49,26 @@
     </section>
 </div>
 
-<section class="popular-places pad-large max-size">
+<section class="popular-markets pad-large max-size">
     <h2 class="md-headline mar-t-0 mar-b-30">
         {{::'POPULAR_PLACES_IN' | translate}} <a class="link">{{ctrl.finder.city}}</a>
     </h2>
 
-    <div class="places grid-container" layout="row" layout-wrap>
-        <div ng-repeat="place in ::ctrl.places"
+    <div class="markets grid-container" layout="row" layout-wrap>
+        <div ng-repeat="market in ::ctrl.markets"
             class="grid-item"
             dy-relevant-cols
             x-min-cols="2"
             x-max-cols="4">
 
-            <div class="card place-card" md-whiteframe="1" dy-whiteframe-elevate="3">
+            <div class="card market-card" md-whiteframe="1" dy-whiteframe-elevate="3">
                 <div class="header" dy-back-img="">
                     <div class="info">
-                        <span class="name">{{::place.name}}</span>
-                        <dy-stars-rating x-score="::place.rating"></dy-stars-rating>
+                        <span class="name">{{::market.name}}</span>
+                        <!-- <dy-stars-rating x-score="::market.rating"></dy-stars-rating> -->
                     </div>
                 </div>
-                <div class="description pad">{{::place.description | ellipsis: 140}}</div>
+                <div class="description pad">{{::market.description | ellipsis: 140}}</div>
             </div>
 
         </div>
@@ -80,7 +80,7 @@
         {{::'SERVICES' | translate}}
     </h2>
 
-    <div class="places grid-container" layout="row" layout-wrap>
+    <div class="services grid-container" layout="row" layout-wrap>
         <div ng-repeat="service in ::ctrl.services"
             class="grid-item"
             dy-flexible-flex
