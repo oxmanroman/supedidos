@@ -24,7 +24,8 @@
 			templateUrl: '/app/main/page.component.html',
 			scope: {
 				location: '=',
-				markets: '='
+				markets: '=',
+				categories: '='
 			},
 			controller: mainPageController,
 			controllerAs: 'ctrl',
@@ -32,28 +33,31 @@
 		};
 	}
 
-	mainPageController.$inject = ['envConfig'];
+	mainPageController.$inject = ['envConfig', 'dyGeolocation', '$state'];
 
-	function mainPageController(envConfig) {
+	function mainPageController(envConfig, dyGeolocation, $state) {
 		var ctrl = this;
 
 		ctrl.country = envConfig.country;
 
 		ctrl.finder = {
-			city: ctrl.location.city
+			city: ctrl.location.city,
+			search: search
 		};
 
-		var service = {
-			name: 'Súpermercado',
-			description: 'Todo lo que necesites al alcance de tu mano'
-		};
-		ctrl.services = [];
-		for (var serviceI = 0; serviceI < 7; serviceI++) {
-			var serviceDemoI = angular.copy(service);
-			serviceDemoI.id = serviceI;
-			ctrl.services[serviceI] = serviceDemoI;
+		function search() {
+			var address = (ctrl.finder.address ? ctrl.finder.address + ', ' : '') +
+			              (ctrl.finder.city ? ctrl.finder.city + ', ' : '') +
+						  ctrl.country;
+
+			dyGeolocation.getCoordinates(address).then(function(coords) {
+				$state.go('markets', _.assign(
+					coords,
+					{ filter: ctrl.finder.filter }
+				));
+			});
+
 		}
-
 	}
 
 })();

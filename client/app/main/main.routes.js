@@ -8,17 +8,22 @@
 
         .state('main', {
             url: '/',
-            template: '<main-page location="::location" markets="::markets"></main-page>',
-            controller: ['$scope', 'location', 'markets', function($scope, location, markets) {
+            template: '<main-page location="::location" markets="::markets" categories="::categories"></main-page>',
+            controller: ['$scope', 'location', 'markets', 'categories',
+                         function($scope, location, markets, categories) {
                 $scope.location = location;
                 $scope.markets = markets;
+                $scope.categories = categories;
             }],
             resolve: {
                 location: ['dyGeolocation', function(dyGeolocation) {
                     return dyGeolocation.getByIp();
                 }],
                 markets: ['Market', function(Market) {
-                    return Market.getList();
+                    return Market.getList({limit: 9});
+                }],
+                categories: ['Category', function(Category) {
+                    return Category.getList();
                 }]
             }
         });

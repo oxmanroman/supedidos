@@ -1,7 +1,8 @@
 'use strict';
 
 import crypto from 'crypto';
-var mongoose = require('bluebird').promisifyAll(require('mongoose'));
+var mongoose = require('bluebird').promisifyAll(require('mongoose')),
+    autoIncrement = require('mongoose-auto-increment');
 import {Schema} from 'mongoose';
 
 const authTypes = ['github', 'twitter', 'facebook', 'google'];
@@ -221,5 +222,8 @@ UserSchema.methods = {
     });
   }
 };
+
+
+UserSchema.plugin(autoIncrement.plugin, 'User');
 
 export default mongoose.model('User', UserSchema);

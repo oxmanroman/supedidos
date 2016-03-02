@@ -30,7 +30,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="bk-grey" ui-view=""></div>
+    <div class="bk-grey" ng-if="i18nLoaded" ui-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -69,19 +69,22 @@
       <script src="app/app.js"></script>
       <!-- injector:js -->
       <script src="app/config/env.js"></script>
-      <script src="app/common/components/stars-rating.component.js"></script>
+      <script src="app/category/category.model.js"></script>
+      <script src="app/common/directives/flexible-flex.directive.js"></script>
       <script src="app/common/directives/relevant-cols.directive.js"></script>
       <script src="app/common/directives/whiteframe-elevate.directive.js"></script>
       <script src="app/common/filters/ellipsis.filter.js"></script>
       <script src="app/common/services/external-script.service.js"></script>
       <script src="app/common/services/geolocation.service.js"></script>
-      <script src="app/common/directives/flexible-flex.directive.js"></script>
+      <script src="app/common/components/stars-rating.component.js"></script>
       <script src="app/config/restangular.js"></script>
       <script src="app/config/routes.js"></script>
       <script src="app/config/translate.js"></script>
       <script src="app/main/main.routes.js"></script>
       <script src="app/main/page.component.js"></script>
+      <script src="app/market/list-page.component.js"></script>
       <script src="app/market/market.model.js"></script>
+      <script src="app/market/market.routes.js"></script>
       <!-- endinjector -->
     <!-- endbuild -->
   </body>

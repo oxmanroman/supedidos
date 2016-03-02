@@ -6,22 +6,27 @@
 
     <div class="info max-size">
         <h1 class="title md-display-1">{{::'DELIVERY_IN_MINUTES' | translate}}</h1>
-        <span class="subtitle md-headline">
-            {{::'LOT_OF_MARKETS_IN_COUNTRY' | translate:'{country: ctrl.country}'}}
+        <span class="subtitle md-headline"
+              translate="LOT_OF_MARKETS_IN_COUNTRY"
+              translate-values="::{ country: '{{ctrl.country}}'}">
         </span>
 
-        <div class="finder" layout-gt-sm="row" md-whiteframe="1">
+        <form class="finder"
+              layout-gt-sm="row"
+              md-whiteframe="1"
+              name="ctrl.finderForm"
+              ng-submit="ctrl.finder.search()">
             <md-input-container class="md-block fixed-height" md-no-float flex-gt-sm>
-                <input placeholder="Tu ciudad" ng-model="ctrl.finder.city">
+                <input placeholder="{{::'YOUR_CITY' | translate}}" ng-model="ctrl.finder.city">
             </md-input-container>
             <md-input-container class="md-block fixed-height" md-no-float flex-gt-sm>
-                <input placeholder="Tu dirección" ng-model="ctrl.finder.address">
+                <input placeholder="{{::'YOUR_DIRECTION' | translate}}" ng-model="ctrl.finder.address">
             </md-input-container>
             <md-input-container class="md-block fixed-height" md-no-float flex-gt-sm>
-                <input placeholder="Servicio" ng-model="ctrl.finder.service">
+                <input placeholder="{{::'CATEGORY_OR_PRODUCT' | translate}}" ng-model="ctrl.finder.filter">
             </md-input-container>
-            <md-button class="md-raised md-primary">{{::'SEARCH' | translate}}</md-button>
-        </div>
+            <md-button type="submit" class="md-raised md-primary">{{::'SEARCH' | translate}}</md-button>
+        </form>
 
     </div>
 </section>
@@ -70,27 +75,26 @@
                 </div>
                 <div class="description pad">{{::market.description | ellipsis: 140}}</div>
             </div>
-
         </div>
     </div>
 </section>
 
-<section class="services pad-large max-size">
+<section class="categories pad-large max-size">
     <h2 class="md-headline mar-t-0 mar-b-30">
-        {{::'SERVICES' | translate}}
+        {{::'CATEGORIES' | translate}}
     </h2>
 
-    <div class="services grid-container" layout="row" layout-wrap>
-        <div ng-repeat="service in ::ctrl.services"
+    <div class="categories grid-container" layout="row" layout-wrap>
+        <div ng-repeat="category in ::ctrl.categories"
             class="grid-item"
             dy-flexible-flex
             dy-affected-index="0,6,7"
             dy-affected-flex="66"
             dy-default-flex="33">
 
-            <div class="card service-card" md-whiteframe="1" dy-whiteframe-elevate="3">
-                <!-- <h3 class="title md-title">{{::service.name}}</h3>
-                <span>{{::service.description}}</span> -->
+            <div class="card category-card" md-whiteframe="1" dy-whiteframe-elevate="3">
+                <h3 class="title md-title">{{::category.name}}</h3>
+                <!-- <span>{{::category.description}}</span> -->
             </div>
 
         </div>

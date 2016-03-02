@@ -11,9 +11,9 @@
 
         Restangular.extendModel('markets', function(market) {
 
-            market.logTest = function() {
-                console.log('log', market);
-            };
+			if (market.distance) {
+				market.distanceBlocks = Math.ceil(market.distance / 100);
+			}
 
             return market;
         });
