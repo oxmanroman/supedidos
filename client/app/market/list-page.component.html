@@ -1,3 +1,56 @@
-<div ng-repeat="market in ::ctrl.markets">
+<dy-navbar></dy-navbar>
+
+<!-- <div ng-repeat="market in ::ctrl.markets">
     {{::market.name}}, a {{::market.distanceBlocks}} cuadras ({{market.address}})
+</div> -->
+
+<div class="pad-large max-size extra-col">
+
+    <div class="content">
+
+        <div ng-repeat="market in ::ctrl.markets"
+             class="card market-list-card mar-b-20"
+             md-whiteframe="1"
+             dy-whiteframe-elevate="3">
+
+            <div class="header pad" dy-back-img="">
+                <h4 class="name secondary-text">{{::market.name}}</h4>
+                <md-button aria-label="{{::'FAVORITE' | translate}}" class="md-icon-button">
+                    <i class="mdi mdi-star"></i>
+                </md-button>
+            </div>
+
+            <div class="info pad bk-white">
+                <i class="mdi mdi-cart"></i>
+                <span>Súpermercado</span>
+                 .
+                <dy-stars-rating x-score="::4"></dy-stars-rating>
+                <p class="description">{{::market.description}}</p>
+            </div>
+
+            <div class="metrics pad bk-white">
+                <div>
+                    <span class="title">{{::market.distance | number: 0}}m</span>
+                    <small class="subtitle">{{::'OF_DISTANCE' | translate}}</small>
+                </div>
+                <div>
+                    <span class="title">45 mins</span>
+                    <small class="subtitle">{{::'DELIVERY_TIME' | translate}}</small>
+                </div>
+                <div>
+                    <span class="title">Gratis</span>
+                    <small class="subtitle">{{::'SHIPPING_COST' | translate}}</small>
+                </div>
+                <div>
+                    <span class="title">45$</span>
+                    <small class="subtitle">{{::'MIN_ORDER' | translate}}</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="side-content">
+        Futuros filtros
+    </div>
 </div>

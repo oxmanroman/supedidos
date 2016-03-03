@@ -1,0 +1,29 @@
+md-input-container {
+    &.md-fixed-height {
+        height: 36px;
+        margin: 0;
+    }
+    &.md-no-line .md-input {
+        border: none;
+    }
+    &.md-has-icon {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    > i.mdi {
+        margin: 0 10px 0 2px;
+        font-size: 24px;
+    }
+    > .md-button {
+        order: 2;
+    }
+}
+
+.md-button.md-icon-button {
+    font-size: 24px;
+    color: rgba(0,0,0,.6);
+    transition: color @transitionTime;
+    &:hover {
+        color: rgba(0,0,0,.8);
+    }
+}

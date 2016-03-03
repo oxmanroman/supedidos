@@ -47,13 +47,12 @@
 
 		function search() {
 			var address = (ctrl.finder.address ? ctrl.finder.address + ', ' : '') +
-			              (ctrl.finder.city ? ctrl.finder.city + ', ' : '') +
-						  ctrl.country;
+			              (ctrl.finder.city ? ctrl.finder.city : '');
 
-			dyGeolocation.getCoordinates(address).then(function(coords) {
+			dyGeolocation.getCoordinates(address + ctrl.country).then(function(coords) {
 				$state.go('markets', _.assign(
 					coords,
-					{ filter: ctrl.finder.filter }
+					{ filter: ctrl.finder.filter, addr: address }
 				));
 			});
 

@@ -1,3 +1,20 @@
+// TODO: remove this
+[dy-back-img] {
+    background: @primaryColor;
+}
+
+body {
+    transition: padding @transitionLargeTime;
+    &.with-navbar {
+        padding-top: 60px;
+    }
+}
+
+.flex-center-align {
+    display: flex;
+    align-items: center;
+}
+
 .fll {
     float: left;
 }
@@ -11,35 +28,54 @@
     margin: 0 auto;
 }
 .pad {
-    padding: 20px;
+    padding: 16px;
 }
 .pad-large {
     padding: 50px 60px;
 }
 
+.divider {
+    background: @dividerColor;
+    margin: 0 20px;
+}
+
 .bk-grey {
-    background-color: #f6f7f9;
+    background-color: @backgroundColor;
 }
 
 .bk-white {
-    background-color: #ffffff;
+    background-color: @whiteColor;
 }
 
 .mar-t-0 {
     margin-top: 0;
+}
+.mar-b-20 {
+    margin-bottom: 20px;
 }
 .mar-b-30 {
     margin-bottom: 30px;
 }
 
 [dy-whiteframe-elevate] {
-    transition: box-shadow .25s;
+    transition: box-shadow @transitionTime;
 }
 
 .grid-container {
     margin: -10px;
     .grid-item {
         padding: 10px;
+    }
+}
+
+.extra-col {
+    display: flex;
+    > .content {
+        flex-basis: 70%;
+        margin-right: 20px;
+    }
+    > .side-content {
+        flex-basis: 30%;
     }
 }
 

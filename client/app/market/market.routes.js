@@ -7,7 +7,7 @@
         $stateProvider
 
         .state('markets', {
-            url: '/mercados?lat&lng&filter',
+            url: '/mercados?addr&lat&lng&filter',
             template: '<market-list-page markets="::markets"></market-list-page>',
             controller: ['$scope', 'markets', function($scope, markets) {
                 $scope.markets = markets;

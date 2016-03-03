@@ -1,10 +1,10 @@
 a {
     &.link {
-        color: #673AB7;
+        color: @primaryColor;
         cursor: pointer;
-        transition: color .25s;
+        transition: color @transitionTime;
         &:hover {
-            color: darken(#673AB7, 18%);
+            color: darken(@primaryColor, 18%);
         }
     }
 }

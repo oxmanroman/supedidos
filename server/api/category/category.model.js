@@ -5,8 +5,14 @@ var mongoose = require('bluebird').promisifyAll(require('mongoose')),
 
 var CategorySchema = new mongoose.Schema({
     name: { type: String, required: true },
-    description: { type: String, required: true }
+    description: { type: String, required: true },
+    color: String,
+    image: String
 });
+
+CategorySchema.path('color').validate((value) => {
+    return /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(value);
+}, 'Invalid color');
 
 CategorySchema.plugin(autoIncrement.plugin, 'Category');
 

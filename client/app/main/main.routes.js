@@ -20,7 +20,7 @@
                     return dyGeolocation.getByIp();
                 }],
                 markets: ['Market', function(Market) {
-                    return Market.getList({limit: 9});
+                    return Market.getList({limit: 5});
                 }],
                 categories: ['Category', function(Category) {
                     return Category.getList();

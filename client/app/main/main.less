@@ -1,8 +1,8 @@
 main-page {
     section.banner {
         height: 400px;
-        background: @colorMain;
-        color: white;
+        background: @primaryColor;
+        color: @whiteColor;
         .nav-bar {
             margin-bottom: 20px;
         }
@@ -20,13 +20,9 @@ main-page {
         .finder {
             align-items: center;
             margin: 0 auto;
-            background: white;
+            background: @whiteColor;
             border-radius: 2px;
             padding: 20px;
-            md-input-container {
-                height: 36px;
-                margin: 0;
-            }
             button {
                 height: 36px;
                 margin: 0;
@@ -37,7 +33,7 @@ main-page {
         }
     }
     section.instructions {
-        background-color: white;
+        background-color: @whiteColor;
         .step {
             text-align: center;
             padding: 0 10px;

@@ -16,13 +16,13 @@
               md-whiteframe="1"
               name="ctrl.finderForm"
               ng-submit="ctrl.finder.search()">
-            <md-input-container class="md-block fixed-height" md-no-float flex-gt-sm>
+            <md-input-container class="md-block md-fixed-height" md-no-float flex-gt-sm>
                 <input placeholder="{{::'YOUR_CITY' | translate}}" ng-model="ctrl.finder.city">
             </md-input-container>
-            <md-input-container class="md-block fixed-height" md-no-float flex-gt-sm>
+            <md-input-container class="md-block md-fixed-height" md-no-float flex-gt-sm>
                 <input placeholder="{{::'YOUR_DIRECTION' | translate}}" ng-model="ctrl.finder.address">
             </md-input-container>
-            <md-input-container class="md-block fixed-height" md-no-float flex-gt-sm>
+            <md-input-container class="md-block md-fixed-height" md-no-float flex-gt-sm>
                 <input placeholder="{{::'CATEGORY_OR_PRODUCT' | translate}}" ng-model="ctrl.finder.filter">
             </md-input-container>
             <md-button type="submit" class="md-raised md-primary">{{::'SEARCH' | translate}}</md-button>
@@ -64,16 +64,16 @@
             class="grid-item"
             dy-relevant-cols
             x-min-cols="2"
-            x-max-cols="4">
+            x-max-cols="3">
 
             <div class="card market-card" md-whiteframe="1" dy-whiteframe-elevate="3">
-                <div class="header" dy-back-img="">
-                    <div class="info">
-                        <span class="name">{{::market.name}}</span>
-                        <!-- <dy-stars-rating x-score="::market.rating"></dy-stars-rating> -->
-                    </div>
+                <div class="img" dy-back-img="::market.category.image"></div>
+
+                <div class="bk-white pad">
+                    <small class="category" dy-color="::market.category.color">{{::market.category.name}}</small>
+                    <h3 class="name">{{::market.name}}</h3>
+                    <span class="description">{{::market.description | ellipsis: 140}}</span>
                 </div>
-                <div class="description pad">{{::market.description | ellipsis: 140}}</div>
             </div>
         </div>
     </div>
@@ -92,7 +92,10 @@
             dy-affected-flex="66"
             dy-default-flex="33">
 
-            <div class="card category-card" md-whiteframe="1" dy-whiteframe-elevate="3">
+            <div class="card category-card"
+                 md-whiteframe="1"
+                 dy-whiteframe-elevate="3"
+                 dy-back-img="::category.image">
                 <h3 class="title md-title">{{::category.name}}</h3>
                 <!-- <span>{{::category.description}}</span> -->
             </div>

@@ -76,7 +76,8 @@ export function index(req, res) {
             {
                 maxDistance: 1000,
                 spherical: true,
-                limit: getLimit(req.query.limit, 5, 20)
+                limit: getLimit(req.query.limit, 20, 20),
+                populate: { path: 'category' }
             },
             function(err, data) {
                 if (err) {
@@ -92,6 +93,7 @@ export function index(req, res) {
         );
     } else {
         Market.find()
+              .populate('category')
               .limit(getLimit(req.query.limit, 5, 20))
               .execAsync()
               .then(responseWithResult(res))
