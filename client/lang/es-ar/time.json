@@ -1,0 +1,18 @@
+{
+    "YEAR": "Año",
+    "YEARS": "Años",
+    "MONTH": "Mes",
+    "MONTHS": "Meses",
+    "WEEK": "Semana",
+    "WEEKS": "Semanas",
+    "DAY": "Día",
+    "DAYS": "Días",
+    "HOUR": "Hora",
+    "HOURS": "Horas",
+    "MINUTE": "Minuto",
+    "MINUTES": "Minutos",
+    "SECOND": "Segundo",
+    "SECONDS": "Segundos",
+    "MILLISECOND": "Milisegundo",
+    "MILLISECONDS": "Milisegundos"
+}

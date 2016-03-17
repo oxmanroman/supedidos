@@ -23,9 +23,14 @@
                 <input placeholder="{{::'YOUR_DIRECTION' | translate}}" ng-model="ctrl.finder.address">
             </md-input-container>
             <md-input-container class="md-block md-fixed-height" md-no-float flex-gt-sm>
-                <input placeholder="{{::'CATEGORY_OR_PRODUCT' | translate}}" ng-model="ctrl.finder.filter">
+                <label>{{::'CATEGORY' | translate}}</label>
+                <md-select ng-model="ctrl.finder.category">
+                    <md-option ng-repeat="category in ::ctrl.categories" value="{{category._id}}">
+                        {{category.name}}
+                    </md-option>
+                </md-select>
             </md-input-container>
-            <md-button type="submit" class="md-raised md-primary">{{::'SEARCH' | translate}}</md-button>
+            <md-button type="submit" class="md-raised md-primary">{{::'START' | translate}}</md-button>
         </form>
 
     </div>
@@ -60,14 +65,15 @@
     </h2>
 
     <div class="markets grid-container" layout="row" layout-wrap>
-        <div ng-repeat="market in ::ctrl.markets"
-            class="grid-item"
-            dy-relevant-cols
-            x-min-cols="2"
-            x-max-cols="3">
+        <a ng-repeat="market in ::ctrl.markets"
+           ui-sref="market({marketId: market._id, marketName: market.name})"
+           class="grid-item"
+           dy-relevant-cols
+           x-min-cols="2"
+           x-max-cols="3">
 
             <div class="card market-card" md-whiteframe="1" dy-whiteframe-elevate="3">
-                <div class="img" dy-back-img="::market.category.image"></div>
+                <div class="img img-cover" dy-back-img="::market.category.image"></div>
 
                 <div class="bk-white pad">
                     <small class="category" dy-color="::market.category.color">{{::market.category.name}}</small>
@@ -75,10 +81,10 @@
                     <span class="description">{{::market.description | ellipsis: 140}}</span>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
 </section>
-
+<!--
 <section class="categories pad-large max-size">
     <h2 class="md-headline mar-t-0 mar-b-30">
         {{::'CATEGORIES' | translate}}
@@ -92,14 +98,14 @@
             dy-affected-flex="66"
             dy-default-flex="33">
 
-            <div class="card category-card"
+            <div class="card category-card img-cover"
                  md-whiteframe="1"
                  dy-whiteframe-elevate="3"
                  dy-back-img="::category.image">
                 <h3 class="title md-title">{{::category.name}}</h3>
-                <!-- <span>{{::category.description}}</span> -->
             </div>
 
         </div>
     </div>
 </section>
+-->

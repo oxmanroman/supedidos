@@ -36,7 +36,9 @@
 
 		var body = angular.element($document[0].body);
 		body.addClass('with-navbar');
-		$scope.$on('$destroy', _.partial(body.removeClass, 'with-navbar'));
+		$scope.$on('$destroy', function() {
+			body.removeClass('with-navbar');
+		});
 
         ctrl.search = $stateParams.addr;
 	}

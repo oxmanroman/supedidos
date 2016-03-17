@@ -1,11 +1,15 @@
 .card {
     &.category-card {
+        position: relative;
         height: 150px;
         color: @whiteColor;
         display: flex;
         align-items: center;
         > * {
             margin: 0 auto;
+        }
+        &::before {
+            .backdrop(.25);
         }
     }
 }

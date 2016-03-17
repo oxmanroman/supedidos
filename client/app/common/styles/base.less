@@ -1,6 +1,36 @@
-// TODO: remove this
+*:focus {
+    outline: 1px solid fade(@primaryColor, 20%);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    li {
+        list-style: none;
+    }
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 [dy-back-img] {
     background: @primaryColor;
+}
+
+.img-cover {
+    background-size: cover;
+    background-position: center;
 }
 
 body {
@@ -8,6 +38,16 @@ body {
     &.with-navbar {
         padding-top: 60px;
     }
+}
+
+.backdrop(@opacity) {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0, @opacity);
 }
 
 .flex-center-align {
@@ -30,13 +70,23 @@ body {
 .pad {
     padding: 16px;
 }
+.pad-small {
+    padding: 12px;
+}
 .pad-large {
     padding: 50px 60px;
 }
 
 .divider {
     background: @dividerColor;
-    margin: 0 20px;
+    &.horizontal {
+        display: block;
+        height: 1px;
+    }
+    &.vertical {
+        width: 1px;
+        height: 100%;
+    }
 }
 
 .bk-grey {
@@ -75,6 +125,7 @@ body {
         margin-right: 20px;
     }
     > .side-content {
+        height: 100%;
         flex-basis: 30%;
     }
 }

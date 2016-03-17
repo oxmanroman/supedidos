@@ -5,7 +5,8 @@
        'deliveryYa.common',
        'deliveryYa.main',
        'deliveryYa.market',
-       'deliveryYa.category'
+       'deliveryYa.product',
+       'deliveryYa.marketCategory'
    ]);
 
     var commonLibs = [
@@ -25,5 +26,6 @@
     angular.module('deliveryYa.common', commonLibs);
     angular.module('deliveryYa.main', ['deliveryYa.common']);
     angular.module('deliveryYa.market', ['deliveryYa.common']);
-    angular.module('deliveryYa.category', ['deliveryYa.common']);
+    angular.module('deliveryYa.product', ['deliveryYa.common']);
+    angular.module('deliveryYa.marketCategory', ['deliveryYa.common']);
 })();

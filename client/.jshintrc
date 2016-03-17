@@ -32,6 +32,7 @@
         "expect" : false,
         "beforeEach": false,
         "afterEach": false,
-        "$": false
+        "$": false,
+        "moment": true
     }
 }

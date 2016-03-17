@@ -1,0 +1,98 @@
+<dy-navbar></dy-navbar>
+
+<div class="pad-large max-size extra-col">
+
+    <div class="content">
+
+        <div ng-repeat="category in ::ctrl.products" class="mar-b-20 category">
+            <h4 ng-class="::{'mar-t-0': $index === 0}">{{::category.name}}</h4>
+            <div class="img img-cover" dy-back-img="::category.image"></div>
+            <div class="grid-container" layout="row" layout-wrap>
+                <div ng-repeat="product in ::category.products" class="grid-item" flex="50">
+                    <div class="product card bk-white pad-small"
+                         md-whiteframe="1"
+                         dy-whiteframe-elevate="2"
+                         ng-click="ctrl.order.add(product)">
+                        <div class="text">
+                            <span class="name">{{::product.name}}</span>
+                            <small class="description">{{::product.description}}</small>
+                        </div>
+                        <div class="actions">
+                            <span class="price"
+                                  translate="PRICE"
+                                  translate-values="::{price: '{{product.price}}'}">
+                            </span>
+                            <md-button class="md-icon-button"
+                                       aria-label="{{::'ADD_TO_ORDER' | translate}}"
+                                       ng-class="{active: ctrl.order.count(product._id) > 0}">
+                                <span class="plus">+</span>
+                                <span class="ammount">{{ctrl.order.count(product._id)}}</span>
+                            </md-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="side-content">
+        <h4 class="mar-t-0">{{::'MY_ORDER' | translate}}</h4>
+        <form class="bk-white pad card order" md-whiteframe="1" ng-submit="ctrl.submit()">
+
+            <div ng-if="!ctrl.order.isEmpty()">
+                <!-- Order products list -->
+                <ul>
+                    <li class="product" ng-repeat="(id, item) in ctrl.order.products">
+                        <md-input-container class="ammount md-fixed-height" md-no-float flex-gt-sm>
+                            <md-select ng-model="item.ammount" aria-label="{{::'AMMOUNT' | translate}}">
+                                <md-option ng-repeat="n in ::ctrl.ammountNumbers" value="{{::n}}">
+                                    {{::n}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <span class="name">{{::item.product.name}}</span>
+                        <span class="price flr"
+                              translate="PRICE"
+                              translate-values="::{price: '{{item.getPrice()}}'}">
+                        </span>
+                    </li>
+                </ul>
+
+                <span class="divider horizontal"></span>
+
+                <!-- Total price -->
+                <span>{{::'TOTAL' | translate}}</span>
+                <span class="price flr bold"
+                      translate="PRICE"
+                      translate-values="::{price: '{{ctrl.order.getPrice()}}'}">
+                </span>
+            </div>
+
+            <div class="empty-order" ng-if="ctrl.order.isEmpty()">
+                <i class="mdi mdi-food-variant"></i>
+                <span class="title">Empezá a hacer tu pedido</span>
+                <small>Tu pedido está vacio</small>
+            </div>
+
+            <!-- Make order button -->
+            <md-button type="submit"
+                       class="md-raised md-primary cta"
+                       ng-disabled="ctrl.order.isEmpty()">
+                {{::'MAKE_ORDER' | translate}}
+            </md-button>
+        </form>
+        <!-- <small>{{::'ORDER_BY' | translate}}</small>
+        <ul>
+            <li>{{::'CHEAPER' | translate}}</li>
+            <li>{{::'CLOSER' | translate}}</li>
+            <li>{{::'BEST_RATED' | translate}}</li>
+            <li>{{::'MORE_POPULAR' | translate}}</li>
+        </ul>
+
+        <small>{{::'CATEGORY' | translate}}</small>
+        <ul>
+            <li ng-repeat="category in ::ctrl.categories">{{::category.name}}</li>
+        </ul> -->
+    </div>
+</div>

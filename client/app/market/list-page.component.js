@@ -23,7 +23,8 @@
 			restrict: 'E',
 			templateUrl: '/app/market/list-page.component.html',
 			scope: {
-				markets: '='
+				markets: '=',
+				categories: '='
 			},
 			controller: marketListPageController,
 			controllerAs: 'ctrl',
@@ -34,7 +35,8 @@
 	marketListPageController.$inject = [];
 
 	function marketListPageController() {
-		// var ctrl = this;
+		var ctrl = this;
+		console.log(ctrl.markets);
 	}
 
 })();

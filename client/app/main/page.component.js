@@ -45,14 +45,16 @@
 			search: search
 		};
 
+		console.log(ctrl.categories);
+
 		function search() {
 			var address = (ctrl.finder.address ? ctrl.finder.address + ', ' : '') +
 			              (ctrl.finder.city ? ctrl.finder.city : '');
 
 			dyGeolocation.getCoordinates(address + ctrl.country).then(function(coords) {
-				$state.go('markets', _.assign(
+				$state.go('products', _.assign(
 					coords,
-					{ filter: ctrl.finder.filter, addr: address }
+					{ category: ctrl.finder.category, addr: address }
 				));
 			});
 

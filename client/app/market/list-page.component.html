@@ -1,56 +1,58 @@
 <dy-navbar></dy-navbar>
 
-<!-- <div ng-repeat="market in ::ctrl.markets">
-    {{::market.name}}, a {{::market.distanceBlocks}} cuadras ({{market.address}})
-</div> -->
-
 <div class="pad-large max-size extra-col">
 
     <div class="content">
 
         <div ng-repeat="market in ::ctrl.markets"
-             class="card market-list-card mar-b-20"
+             class="card market-card mar-b-20"
              md-whiteframe="1"
              dy-whiteframe-elevate="3">
+            <div class="img img-cover" dy-back-img="::market.category.image"></div>
 
-            <div class="header pad" dy-back-img="">
-                <h4 class="name secondary-text">{{::market.name}}</h4>
-                <md-button aria-label="{{::'FAVORITE' | translate}}" class="md-icon-button">
-                    <i class="mdi mdi-star"></i>
-                </md-button>
-            </div>
+            <div class="bk-white pad">
+                <small class="category" dy-color="::market.category.color">{{::market.category.name}}</small>
+                <h3 class="name">{{::market.name}}</h3>
+                <span class="description">{{::market.description | ellipsis: 140}}</span>
 
-            <div class="info pad bk-white">
-                <i class="mdi mdi-cart"></i>
-                <span>Súpermercado</span>
-                 .
-                <dy-stars-rating x-score="::4"></dy-stars-rating>
-                <p class="description">{{::market.description}}</p>
-            </div>
+                <span class="divider horizontal"></span>
 
-            <div class="metrics pad bk-white">
-                <div>
-                    <span class="title">{{::market.distance | number: 0}}m</span>
-                    <small class="subtitle">{{::'OF_DISTANCE' | translate}}</small>
-                </div>
-                <div>
-                    <span class="title">45 mins</span>
-                    <small class="subtitle">{{::'DELIVERY_TIME' | translate}}</small>
-                </div>
-                <div>
-                    <span class="title">Gratis</span>
-                    <small class="subtitle">{{::'SHIPPING_COST' | translate}}</small>
-                </div>
-                <div>
-                    <span class="title">45$</span>
-                    <small class="subtitle">{{::'MIN_ORDER' | translate}}</small>
+                <div class="metrics">
+                    <div ng-if="::market.distance">
+                        <span class="title">{{::market.distance | relativeDistance}}</span>
+                        <small class="subtitle">{{::'OF_DISTANCE' | translate}}</small>
+                    </div>
+                    <div ng-if="::market.deliveryTime">
+                        <span class="title">{{::market.deliveryTime | relativeTime:'minutes' | lowercase}}</span>
+                        <small class="subtitle">{{::'DELIVERY_TIME' | translate}}</small>
+                    </div>
+                    <div>
+                        <span class="title">Gratis</span>
+                        <small class="subtitle">{{::'SHIPPING_COST' | translate}}</small>
+                    </div>
+                    <div>
+                        <span class="title" ng-if="::market.minOrder">{{::market.minOrder}}$</span>
+                        <span class="title" ng-if="::!market.minOrder">{{::'FREE' | translate}}</span>
+                        <small class="subtitle">{{::'MIN_ORDER' | translate}}</small>
+                    </div>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <div class="side-content">
-        Futuros filtros
+    <div class="side-content filters-list">
+        <small>{{::'ORDER_BY' | translate}}</small>
+        <ul>
+            <li>{{::'CHEAPER' | translate}}</li>
+            <li>{{::'CLOSER' | translate}}</li>
+            <li>{{::'BEST_RATED' | translate}}</li>
+            <li>{{::'MORE_POPULAR' | translate}}</li>
+        </ul>
+
+        <small>{{::'CATEGORY' | translate}}</small>
+        <ul>
+            <li ng-repeat="category in ::ctrl.categories">{{::category.name}}</li>
+        </ul>
     </div>
 </div>

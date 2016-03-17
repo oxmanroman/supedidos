@@ -19,6 +19,8 @@
      *
      */
 
+    ellipsisFilter.$inject = [];
+
     function ellipsisFilter() {
         return function (value, max, wordwise, tail) {
             if (!value) {

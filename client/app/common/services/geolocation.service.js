@@ -14,9 +14,9 @@
      *
      */
 
-    dyGeolocationService.$inject = ['$q', '$http', 'dyExternalScript'];
+    dyGeolocationService.$inject = ['$q', '$http'];
 
-    function dyGeolocationService($q, $http, dyExternalScript) {
+    function dyGeolocationService($q, $http) {
         // Service definition
         return {
             getByIp: getByIp,
@@ -25,17 +25,11 @@
 
         function getByIp () {
             return $q(function(resolve, reject) {
-                dyExternalScript.load('//l2.io/ip.js?var=myip').then(function() {
-                    /* global myip */
-                    window.locationCallback = function(data) {
-                        window.approxLocation = data;
-                    };
-                    dyExternalScript.load('//ip-api.com/json/' + myip + '?callback=locationCallback').then(
-                        function() {
-                            resolve(window.approxLocation);
-                        }, reject
-                    );
-                });
+                $http.get('https://api.ipify.org/').then(function(ip) {
+                    $http.get('http://ipinfo.io/' + ip.data + '/geo').then(function(location) {
+                        resolve(location.data);
+                    }, reject);
+                }, reject);
             });
         }
 

@@ -4,8 +4,8 @@
     "LOT_OF_MARKETS_IN_COUNTRY": "Más de 3000 mercados con delivery en {{country}}",
     "YOUR_CITY": "Tu ciudad",
     "YOUR_DIRECTION": "Tu dirección",
-    "CATEGORY_OR_PRODUCT": "Categoría o producto",
     "SEARCH": "Buscar",
+    "START": "Empezar",
     "CHOOSE": "Elegí",
     "CHOOSE_PLACE_AND_PRODUCTS": "Buscá tu lugar favorito y elegí los productos que buscas",
     "MAKE_YOUR_ORDER": "Hace tu pedido",
@@ -13,5 +13,6 @@
     "GET_IT_HOME": "Recibilo en tu casa",
     "DONT_MOVE_WAIT_FOR_IT": "No te muevas del sillón, esperá a que tu pedido venga a vos",
     "POPULAR_PLACES_IN": "Lugares populares en",
+    "CATEGORY": "Categoría",
     "CATEGORIES": "Categorías"
 }

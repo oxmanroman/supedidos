@@ -10,7 +10,7 @@
 'use strict';
 
 import _ from 'lodash';
-var Category = require('./category.model');
+var MarketCategory = require('./market-category.model');
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -61,41 +61,41 @@ function removeEntity(res) {
 
 // Gets a list of Categories
 export function index(req, res) {
-  Category.findAsync()
+  MarketCategory.findAsync()
     .then(responseWithResult(res))
     .catch(handleError(res));
 }
 
-// Gets a single Category from the DB
+// Gets a single MarketCategory from the DB
 export function show(req, res) {
-  Category.findByIdAsync(req.params.id)
+  MarketCategory.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(responseWithResult(res))
     .catch(handleError(res));
 }
 
-// Creates a new Category in the DB
+// Creates a new MarketCategory in the DB
 export function create(req, res) {
-  Category.createAsync(req.body)
+  MarketCategory.createAsync(req.body)
     .then(responseWithResult(res, 201))
     .catch(handleError(res));
 }
 
-// Updates an existing Category in the DB
+// Updates an existing MarketCategory in the DB
 export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  Category.findByIdAsync(req.params.id)
+  MarketCategory.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(responseWithResult(res))
     .catch(handleError(res));
 }
 
-// Deletes a Category from the DB
+// Deletes a MarketCategory from the DB
 export function destroy(req, res) {
-  Category.findByIdAsync(req.params.id)
+  MarketCategory.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));

@@ -11,6 +11,7 @@
 
 import _ from 'lodash';
 var Market = require('./market.model');
+var MarketCategory = require('../market-category/market-category.model');
 
 function handleError(res, statusCode) {
     statusCode = statusCode || 500;
@@ -64,6 +65,7 @@ function getLimit(limit, def, max) {
 
 // Gets a list of Markets
 export function index(req, res) {
+    var categoryFields = 'name color image';
     if (req.query.lat && req.query.lng) {
         Market.geoNear(
             {
@@ -74,26 +76,29 @@ export function index(req, res) {
                 type: 'Point'
             },
             {
-                maxDistance: 1000,
                 spherical: true,
-                limit: getLimit(req.query.limit, 20, 20),
-                populate: { path: 'category' }
+                limit: getLimit(req.query.limit, 20, 20)
             },
             function(err, data) {
                 if (err) {
                     handleError(res);
                 }
-                var markets = data.map(function(market) {
-                    var parsed = market.obj.toJSON();
-                    parsed.distance = market.dis;
-                    return parsed;
+
+                MarketCategory.populate( data, { path: 'obj.category', select: categoryFields }, function(err, populatedData) {
+                    if (err) res.json(err);
+
+                    var markets = populatedData.map(function(market) {
+                        var parsed = market.obj.toJSON();
+                        parsed.distance = market.dis;
+                        return parsed;
+                    });
+                    return res.json(markets);
                 });
-                return res.send(markets);
             }
         );
     } else {
         Market.find()
-              .populate('category')
+              .populate('category', categoryFields)
               .limit(getLimit(req.query.limit, 5, 20))
               .execAsync()
               .then(responseWithResult(res))

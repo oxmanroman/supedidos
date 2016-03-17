@@ -1,5 +1,12 @@
 .card {
-    cursor: pointer;
     border-radius: 2px;
     overflow: hidden;
+    .divider {
+        height: 1px;
+        display: block;
+        margin: 16px -16px;
+    }
+    &[ng-click] {
+        cursor: pointer;
+    }
 }

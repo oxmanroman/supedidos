@@ -5,5 +5,11 @@
     "OF_DISTANCE": "De distancia",
     "DELIVERY_TIME": "Tiempo de entrega",
     "SHIPPING_COST": "Costo de envio",
-    "MIN_ORDER": "Pedido mínimo"
+    "MIN_ORDER": "Pedido mínimo",
+    "FREE": "Gratis",
+    "ORDER_BY": "Ordenar por",
+    "CHEAPER": "Más barato",
+    "CLOSER": "Más cerca",
+    "BEST_RATED": "Mejor puntados",
+    "MORE_POPULAR": "Más populares"
 }

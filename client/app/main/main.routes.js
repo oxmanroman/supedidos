@@ -8,7 +8,7 @@
 
         .state('main', {
             url: '/',
-            template: '<main-page location="::location" markets="::markets" categories="::categories"></main-page>',
+            template: '<main-page location="::location" markets="::markets" categories="categories"></main-page>',
             controller: ['$scope', 'location', 'markets', 'categories',
                          function($scope, location, markets, categories) {
                 $scope.location = location;
@@ -22,8 +22,8 @@
                 markets: ['Market', function(Market) {
                     return Market.getList({limit: 5});
                 }],
-                categories: ['Category', function(Category) {
-                    return Category.getList();
+                categories: ['MarketCategory', function(MarketCategory) {
+                    return MarketCategory.getList();
                 }]
             }
         });

@@ -6,13 +6,7 @@
             background-position: center;
             position: relative;
             &::before {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0,0,0,.25);
+                .backdrop(.25);
             }
         }
         .category {
@@ -29,36 +23,9 @@
             font-size: 15px;
             color: @secondaryText;
         }
-    }
-    &.market-list-card {
-        .header {
-            position: relative;
-            color: @whiteColor;
-            padding-right: 60px;
-            .name {
-                margin: 0;
-            }
-            .md-button.md-icon-button {
-                position: absolute;
-                top: 50%;
-                right: 0;
-                transform: translateY(-50%);
-                color: @whiteColor;
-            }
-        }
-        .info {
-            dy-stars-rating {
-                color: @amberColor;
-            }
-            .description {
-                font-size: 15px;
-                color: @secondaryText;
-            }
-        }
         .metrics {
             display: flex;
             text-align: center;
-            border-top: 1px solid @dividerColor;
             > div {
                 flex: 1;
                 .title {
@@ -70,8 +37,31 @@
                 }
             }
         }
-        &:last-child {
-            margin-bottom: 0;
+    }
+}
+
+.filters-list {
+    small {
+        display: block;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: @secondaryText;
+        margin-bottom: 10px;
+        &:not(:first-child) {
+            margin-top: 16px;
+        }
+    }
+    ul {
+        padding-left: 5px;
+        li {
+            margin: 10px 0;
+            font-size: 15px;
+            cursor: pointer;
+            font-weight: normal;
+            transition: color @transitionTime;
+            &.selected {
+                color: @primaryColor;
+            }
         }
     }
 }
