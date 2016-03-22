@@ -306,7 +306,7 @@ module.exports = function (grunt) {
     // `server/config/environment/shared.js`
     ngconstant: {
       options: {
-        name: 'deliveryYa',
+        name: 'supedidos',
         dest: '<%= yeoman.client %>/app/config/env.js',
         deps: false,
         wrap: true,
@@ -648,7 +648,7 @@ module.exports = function (grunt) {
     },
   });
 
-  grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
+  grunt.registerTask('keepalive', 'Keep grunt running', function() {
     this.async();
   });
 
@@ -667,7 +667,8 @@ module.exports = function (grunt) {
         'merge-json',
         'wiredep:client',
         'postcss',
-        'concurrent:debug'
+        'concurrent:debug',
+        'keepalive'
       ]);
     }
 
@@ -682,7 +683,8 @@ module.exports = function (grunt) {
       'postcss',
       'express:dev',
       'open',
-      'watch'
+      'watch',
+      'keepalive'
     ]);
   });
 
@@ -803,7 +805,8 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'filerev',
-    'usemin'
+    'usemin',
+    'keepalive'
   ]);
 
   grunt.registerTask('default', [

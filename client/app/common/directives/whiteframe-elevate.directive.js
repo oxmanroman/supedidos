@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('deliveryYa.common')
+        .module('supedidos.common')
         .directive('dyWhiteframeElevate', dyWhiteframeElevateDirective);
 
     /**
      * @ngdoc directive
-     * @name deliveryYa.common.directive:dyWhiteframeElevate
+     * @name supedidos.common.directive:dyWhiteframeElevate
      * @restrict A
      *
      * @description

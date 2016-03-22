@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('deliveryYa.common')
+        .module('supedidos.common')
         .service('dyGeolocation', dyGeolocationService);
 
     /**
      * @ngdoc service
-     * @name deliveryYa.common.service:dyGeolocation
+     * @name supedidos.common.service:dyGeolocation
      *
      * @description
      * Alter html head and load external script

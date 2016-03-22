@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('deliveryYa.common')
+        .module('supedidos.common')
         .directive('dyRelevantCols', dyRelevantColsDirective);
 
     /**
      * @ngdoc directive
-     * @name deliveryYa.common.directive:dyRelevantCols
+     * @name supedidos.common.directive:dyRelevantCols
      * @restrict A
      *
      * @description

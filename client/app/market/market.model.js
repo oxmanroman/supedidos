@@ -2,23 +2,26 @@
 	'use strict';
 
 	angular
-		.module('deliveryYa.market')
+		.module('supedidos.market')
 		.factory('Market', MarketFactory);
 
 	MarketFactory.$inject = ['Restangular'];
 
 	function MarketFactory(Restangular) {
 
+        // Constructor
+        function Market(market) {
+			_.assignIn(this, market);
+        }
+
         Restangular.extendModel('markets', function(market) {
-
-			if (market.distance) {
-				market.distanceBlocks = Math.ceil(market.distance / 100);
-			}
-
-            return market;
+            return new Market(market);
         });
 
-        return Restangular.all('markets');
+		_.assignIn(Market, Restangular.service('markets'));
+
+        // Return the constructor function
+        return Market;
 	}
 
 })();

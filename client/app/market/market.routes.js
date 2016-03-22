@@ -8,11 +8,15 @@
 
         .state('markets', {
             url: '/mercados?addr&lat&lng&filter',
-            template: '<market-list-page markets="::markets" categories="::categories"></market-list-page>',
-            controller: ['$scope', 'markets', 'categories', function($scope, markets, categories) {
-                $scope.markets = markets;
-                $scope.categories = categories;
-            }],
+            views: {
+                'main': {
+                    template: '<market-list-page markets="::markets" categories="::categories"></market-list-page>',
+                    controller: ['$scope', 'markets', 'categories', function($scope, markets, categories) {
+                        $scope.markets = markets;
+                        $scope.categories = categories;
+                    }]
+                }
+            },
             resolve: {
                 markets: ['Market', '$stateParams', function(Market, $stateParams) {
                     return Market.getList($stateParams);
@@ -25,10 +29,14 @@
 
         .state('market', {
             url: '/mercados/{marketId:[0-9]{1,10}}/:marketName',
-            template: '<market-page market="::market"></market-page>',
-            controller: ['$scope', 'market', function($scope, market) {
-                $scope.market = market;
-            }],
+            views: {
+                'main': {
+                    template: '<market-page market="::market"></market-page>',
+                    controller: ['$scope', 'market', function($scope, market) {
+                        $scope.market = market;
+                    }]
+                }
+            },
             resolve: {
                 market: ['Market', '$stateParams', function(Market, $stateParams) {
                     return Market.get($stateParams.marketId);
@@ -38,6 +46,6 @@
     }
 
     angular
-        .module('deliveryYa.market')
+        .module('supedidos.market')
         .config(appConfig);
 })();

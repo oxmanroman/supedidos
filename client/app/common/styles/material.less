@@ -1,14 +1,19 @@
 md-input-container {
-    &.md-fixed-height {
-        height: 36px;
-        margin: 0;
+    &.md-no-errors .md-errors-spacer {
+        display: none;
     }
     &.md-no-line .md-input {
         border: none;
     }
     &.md-has-icon {
-        padding-left: 0;
+        padding-left: 36px;
         padding-right: 0;
+        > i.mdi {
+            top: 8px;
+            left: 2px;
+            right: auto;
+            position: absolute;
+        }
     }
     > i.mdi {
         margin: 0 10px 0 2px;

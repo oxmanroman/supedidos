@@ -1,12 +1,14 @@
 .card {
-    &.category-card {
+    &.product-category-card {
         position: relative;
         height: 150px;
         color: @whiteColor;
         display: flex;
         align-items: center;
-        > * {
+        .title {
+            z-index: 1;
             margin: 0 auto;
+            font-size: 1.3em;
         }
         &::before {
             .backdrop(.25);

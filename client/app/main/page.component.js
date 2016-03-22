@@ -2,12 +2,12 @@
 	'use strict';
 
 	angular
-		.module('deliveryYa.main')
+		.module('supedidos.main')
 		.directive('mainPage', mainPageDirective);
 
 	/**
 	 * @ngdoc directive
-	 * @name deliveryYa.main.directive:mainPage
+	 * @name supedidos.main.directive:mainPage
 	 * @restrict E
 	 * @scope
 	 *
@@ -24,8 +24,7 @@
 			templateUrl: '/app/main/page.component.html',
 			scope: {
 				location: '=',
-				markets: '=',
-				categories: '='
+				markets: '='
 			},
 			controller: mainPageController,
 			controllerAs: 'ctrl',
@@ -45,16 +44,14 @@
 			search: search
 		};
 
-		console.log(ctrl.categories);
-
 		function search() {
 			var address = (ctrl.finder.address ? ctrl.finder.address + ', ' : '') +
 			              (ctrl.finder.city ? ctrl.finder.city : '');
 
 			dyGeolocation.getCoordinates(address + ctrl.country).then(function(coords) {
-				$state.go('products', _.assign(
+				$state.go('order.productCategories', _.assign(
 					coords,
-					{ category: ctrl.finder.category, addr: address }
+					{ addr: address }
 				));
 			});
 

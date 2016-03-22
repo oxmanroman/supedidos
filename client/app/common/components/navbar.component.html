@@ -1,18 +1,10 @@
 <div class="content md-whiteframe-1dp">
 
     <div class="search">
-            <md-input-container md-no-float class="md-no-line md-fixed-height flex-center-align">
-                <i class="mdi mdi-magnify"></i>
-                <input ng-model="navCtrl.search" type="text" placeholder="{{::'SEARCH' | translate}}">
-                <!--
-                <md-button aria-label="{{::'LIST' | translate}}" class="md-icon-button">
-                    <i class="mdi mdi-view-list"></i>
-                </md-button>
-                <md-button aria-label="{{::'MAP' | translate}}" class="md-icon-button">
-                    <i class="mdi mdi-map"></i>
-                </md-button>
-                -->
-    </md-input-container>
+        <md-input-container md-no-float class="md-no-line md-no-errors mar-0 flex-center-align">
+            <i class="mdi mdi-magnify"></i>
+            <input ng-model="navCtrl.search" type="text" placeholder="{{::'SEARCH' | translate}}">
+        </md-input-container>
     </div>
 
     <span class="divider vertical"></span>

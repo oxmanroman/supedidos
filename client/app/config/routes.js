@@ -2,7 +2,7 @@
    'use strict';
 
    angular
-       .module('deliveryYa')
+       .module('supedidos')
        .config(appConfig);
 
     appConfig.$inject = ['$urlRouterProvider', '$locationProvider'];

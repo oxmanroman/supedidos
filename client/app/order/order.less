@@ -1,0 +1,109 @@
+order-page {
+    .side-content {
+        padding-top: 52px;
+        .order {
+            .product {
+                display: flex;
+                align-items: center;
+                font-size: 14px;
+                .ammount {
+                    margin-right: 10px;
+                    max-width: 55px;
+                    md-select-value {
+                        min-width: 47px;
+                    }
+                }
+                .name {
+                    margin-right: 10px;
+                }
+                .price {
+                    margin-left: auto;
+                }
+                &:not(:last-child) {
+                    margin-bottom: 10px;
+                }
+            }
+
+            .empty-order {
+                text-align: center;
+                i {
+                    font-size: 60px;
+                    color: @iconLightColor;
+                }
+                .title {
+                    display: block;
+                    margin: 10px 0 5px 0;
+                }
+                small {
+                    color: @secondaryText;
+                }
+            }
+
+            button.cta {
+                margin: 20px 0 0 0;
+                width: 100%;
+            }
+        }
+
+    }
+}
+
+order-product-list {
+    .card.product-category-card {
+        height: 100px;
+    }
+    .product-card {
+        display: flex;
+        .text {
+            flex: 1;
+            margin-right: 20px;
+            .name {
+                display: block;
+                margin-bottom: 5px;
+            }
+            .description {
+                color: @secondaryText;
+            }
+        }
+        .actions {
+            .price {
+                margin-right: 10px;
+                font-weight: 500;
+                font-size: 14px;
+            }
+            button {
+                background-color: @primaryColor;
+                color: @whiteColor;
+                height: 26px;
+                width: 26px;
+                padding: 0px;
+                margin: 0;
+                min-height: initial;
+                font-size: 18px;
+                opacity: .6;
+                transition: opacity @transitionTime;
+                .ammount {
+                    font-size: 14px;
+                    line-height: 26px;
+                }
+                &.active {
+                    opacity: 1;
+                    .plus {
+                        display: none;
+                    }
+                }
+                &:not(.active) .ammount {
+                    display: none;
+                }
+                &:hover {
+                    opacity: 1;
+                    color: white;
+                    background-color: @primaryColor !important;
+                }
+            }
+        }
+        &:hover {
+            .actions button:extend(order-product-list .product-card .actions button:hover) {}
+        }
+    }
+}

@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('deliveryYa.common')
+        .module('supedidos.common')
         .directive('dyFlexibleFlex', dyFlexibleFlexDirective);
 
     /**
      * @ngdoc directive
-     * @name deliveryYa.common.directive:dyFlexibleFlex
+     * @name supedidos.common.directive:dyFlexibleFlex
      * @restrict A
      *
      * @description

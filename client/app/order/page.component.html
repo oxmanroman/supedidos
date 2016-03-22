@@ -1,0 +1,75 @@
+<dy-navbar></dy-navbar>
+
+<div class="pad-large max-size extra-col">
+
+    <div class="content">
+
+        <div ui-view="order"></div>
+
+    </div>
+
+    <div class="side-content">
+        <form class="bk-white pad card order" md-whiteframe="1" ng-submit="ctrl.submit()">
+
+            <div ng-if="!ctrl.order.isEmpty()">
+                <!-- Order products list -->
+                <ul>
+                    <li class="product" ng-repeat="(id, item) in ctrl.order.products">
+                        <md-input-container class="ammount md-no-errors mar-0" md-no-float flex-gt-sm>
+                            <md-select ng-model="item.ammount" aria-label="{{::'AMMOUNT' | translate}}">
+                                <md-option ng-repeat="n in ::ctrl.ammountNumbers" value="{{::n}}">
+                                    {{::n}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <span class="name">{{::item.name}}</span>
+                        <span class="price flr"
+                              translate="PRICE"
+                              translate-values="::{price: '{{item.getPrice() | number:2}}'}">
+                        </span>
+                    </li>
+                </ul>
+
+                <span class="divider horizontal"></span>
+
+                <!-- Total price -->
+                <span>{{::'TOTAL' | translate}}</span>
+                <span class="price flr bold"
+                      translate="PRICE"
+                      translate-values="::{price: '{{ctrl.order.getPrice() | number:2}}'}">
+                </span>
+            </div>
+
+            <div class="empty-order" ng-if="ctrl.order.isEmpty()">
+                <i class="mdi mdi-food-variant"></i>
+                <span class="title">{{::'START_YOUR_ORDER' | translate}}</span>
+                <small>{{::'ORDER_IS_EMPTY' | translate}}</small>
+            </div>
+
+            <!-- Make order button -->
+            <md-button type="submit"
+                       class="md-raised md-primary cta"
+                       ng-disabled="ctrl.order.isEmpty()">
+                {{::'MAKE_ORDER' | translate}}
+            </md-button>
+
+            <!-- <md-button class="md-accent md-small"
+                       ng-if="!ctrl.order.isEmpty()"
+                       ng-click="ctrl.order.clear()">
+                {{::'DELETE_ORDER' | translate}}
+            </md-button> -->
+        </form>
+        <!-- <small>{{::'ORDER_BY' | translate}}</small>
+        <ul>
+            <li>{{::'CHEAPER' | translate}}</li>
+            <li>{{::'CLOSER' | translate}}</li>
+            <li>{{::'BEST_RATED' | translate}}</li>
+            <li>{{::'MORE_POPULAR' | translate}}</li>
+        </ul>
+
+        <small>{{::'CATEGORY' | translate}}</small>
+        <ul>
+            <li ng-repeat="category in ::ctrl.categories">{{::category.name}}</li>
+        </ul> -->
+    </div>
+</div>

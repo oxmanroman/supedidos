@@ -8,9 +8,11 @@ var ProductSchema = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
     name: { type: String, required: true },
+    brand: { type: String, required: true },
     price: { type: Number, required: true },
     barcode: { type: String, required: true },
     description: String,
+    weight: String,
     category: { type: Number, ref: 'ProductCategory', required: true }
 });
 

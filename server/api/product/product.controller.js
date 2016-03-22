@@ -64,18 +64,8 @@ function getLimit(limit, def, max) {
     return limitNumber ? (limitNumber > max ? max : limitNumber) : def;
 }
 
-// Gets a list of Products
-export function index(req, res) {
-    // Handle errors
-    if (!req.query.category) {
-        return res.status(400).send('Must send category to filter products');
-    }
-    if (!req.query.lat || !req.query.lng) {
-        return res.status(400).send('Must send coordinates to bring products near your zone');
-    }
-
-    // Get markets near your zone
-    Market
+function findNearMarkets(req) {
+    return Market
         .aggregate()
         .near({
             near: {
@@ -84,48 +74,46 @@ export function index(req, res) {
             },
             distanceField: "distance", // required
             // "maxDistance": 10000 // distance in meters,
-            spherical: true,
-            query: {
-                "location.type": "Point"
-            }
+            spherical: true
         })
         .sort('-distance') // Sort nearest first
         .match({
-            category: Number(req.query.category)
+            category: 0
         })
-        .exec()
-        .then(function(markets) {
+        .exec();
+}
 
-            // Populate markets with product categories
-            var productFields = 'name barcode description category price';
-            Product.populate(markets, { path: 'products', select: productFields }, function(err, marketPopulatedProducts) {
-                if (err) {
-                    res.json(err);
-                }
-                var productCategories = _.uniq(_.flatten(marketPopulatedProducts.map(function(market) {
-                    return market.productCategories;
-                })));
+function populateMarketsProductsByCategory(category) {
+    return function(markets) {
+        // Populate markets with product categories
+        var productFields = 'name barcode description category price';
+        return Product.populate(markets, {
+            match: {category: category},
+            path: 'products',
+            select: productFields
+        });
+    }
+}
 
-                ProductCategory
-                    .where('_id')
-                    .in(productCategories)
-                    .select('name image')
-                    .lean()
-                    .exec()
-                    .then(function(categories) {
-                        var allProducts = _.uniqBy(_.flatten(marketPopulatedProducts.map(function(market) {
-                            return market.products;
-                        })), 'barcode');
-                        var categoriesPopulatedProducts = categories.map(function(category) {
-                            category.products = _.filter(allProducts, ['category', category._id]);
-                            return category;
-                        });
-                        res.json(categoriesPopulatedProducts);
-                    })
-                    .catch(_.partial(handleError, res));
-            });
-        })
-        .catch(_.partial(handleError, res));
+function flattenMarketsProducts(markets) {
+    return _.uniqBy(_.flatten(markets.map(function(market) {
+        return market.products;
+    })), 'barcode');
+}
+
+// Gets a list of Products
+export function index(req, res) {
+    // Handle errors
+    if (!req.query.lat || !req.query.lng) {
+        return res.status(400).send('Must send coordinates to bring products near your zone');
+    }
+
+    findNearMarkets(req)
+        .then(handleEntityNotFound(res))
+        .then(populateMarketsProductsByCategory(req.query.category))
+        .then(flattenMarketsProducts)
+        .then(responseWithResult(res))
+        .catch(handleError(res));
 }
 
 // Gets a single Product from the DB

@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('deliveryYa.common')
+        .module('supedidos.common')
         .filter('relativeDistance', relativeDistanceFilter);
 
     /**
      * @ngdoc filter
-     * @name deliveryYa.common.filter:relativeDistance
+     * @name supedidos.common.filter:relativeDistance
      * @restrict A
      *
      * @description

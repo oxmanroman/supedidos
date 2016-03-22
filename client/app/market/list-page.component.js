@@ -2,12 +2,12 @@
 	'use strict';
 
 	angular
-		.module('deliveryYa.market')
+		.module('supedidos.market')
 		.directive('marketListPage', marketListPageDirective);
 
 	/**
 	 * @ngdoc directive
-	 * @name deliveryYa.market.directive:marketListPage
+	 * @name supedidos.market.directive:marketListPage
 	 * @restrict E
 	 * @scope
 	 *

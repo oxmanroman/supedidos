@@ -6,6 +6,7 @@ var controller = require('./market.controller');
 var router = express.Router();
 
 router.get('/', controller.index);
+router.get('/order/:id', controller.indexForOrder);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
 router.put('/:id', controller.update);

@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('deliveryYa.common')
+        .module('supedidos.common')
         .service('appHelper', appHelperService);
 
     /**
      * @ngdoc service
-     * @name deliveryYa.common.service:appHelper
+     * @name supedidos.common.service:appHelper
      *
      * @description
      * Alter html head and load external script

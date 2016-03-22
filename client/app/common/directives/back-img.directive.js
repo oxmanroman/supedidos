@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('deliveryYa.common')
+        .module('supedidos.common')
         .directive('dyBackImg', dyBackImgDirective);
 
     /**
      * @ngdoc directive
-     * @name deliveryYa.common.directive:dyBackImg
+     * @name supedidos.common.directive:dyBackImg
      * @restrict A
      *
      * @description

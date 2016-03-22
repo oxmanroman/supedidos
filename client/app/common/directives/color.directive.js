@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('deliveryYa.common')
+        .module('supedidos.common')
         .directive('dyColor', dyColorDirective);
 
     /**
      * @ngdoc directive
-     * @name deliveryYa.common.directive:dyColor
+     * @name supedidos.common.directive:dyColor
      * @restrict A
      *
      * @description

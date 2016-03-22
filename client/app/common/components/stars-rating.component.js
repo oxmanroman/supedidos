@@ -2,12 +2,12 @@
 	'use strict';
 
 	angular
-		.module('deliveryYa.common')
+		.module('supedidos.common')
 		.directive('dyStarsRating', dyStarsRatingDirective);
 
 	/**
 	 * @ngdoc directive
-	 * @name deliveryYa.common.directive:dyStarsRating
+	 * @name supedidos.common.directive:dyStarsRating
 	 * @restrict E
 	 * @scope
 	 *

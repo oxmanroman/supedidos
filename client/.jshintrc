@@ -21,6 +21,7 @@
     "globalstrict": false,
     "validthis": true,
     "-W065":true,
+    "multistr": true,
     "globals": {
         "angular": true,
         "_": true,

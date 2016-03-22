@@ -72,7 +72,10 @@ export function show(req, res) {
 
 // Creates a new Order in the DB
 export function create(req, res) {
-    Order.createAsync(req.body)
+    var order = req.body;
+    order.location = { type: 'Point', coordinates: order.location};
+
+    Order.createAsync(order)
           .then(responseWithResult(res, 201))
           .catch(handleError(res));
 }
@@ -100,6 +103,14 @@ export function update(req, res) {
     Order.findByIdAsync(req.params.id)
           .then(handleEntityNotFound(res))
           .then(saveUpdates(req.body))
+          .then(responseWithResult(res))
+          .catch(handleError(res));
+}
+
+// Get markets available for making this order
+export function getMarkets(req, res) {
+    Order.findByIdAsync(req.params.id)
+          .then(handleEntityNotFound(res))
           .then(responseWithResult(res))
           .catch(handleError(res));
 }

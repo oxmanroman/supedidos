@@ -8,11 +8,15 @@ var OrderSchema = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
     cancelled: { type: Boolean, default: false },
-    submitted: { type: Boolean, default: false },
-    price: { type: Number },
+    price: Number,
     market: { type: Number, ref: 'Market' },
-    products: [{type: Number, ref: 'Product'}]
+    location: { type: { type: String }, coordinates: [] },
+    address: { type: String, required: true},
+    phone: String,
+    products: [String]
 });
+
+OrderSchema.index({ location: '2dsphere' });
 
 OrderSchema.plugin(autoIncrement.plugin, 'Order');
 

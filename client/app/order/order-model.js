@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('deliveryYa.product')
+		.module('supedidos.order')
 		.factory('Order', OrderFactory);
 
 	OrderFactory.$inject = ['Restangular'];
@@ -10,18 +10,19 @@
 	function OrderFactory(Restangular) {
 
         // Constructor
-        function Order() {
+        function Order(order) {
+			console.log(order);
             this.products = {};
-			_.assignIn(this, Restangular.all('orders'));
+			_.assignIn(this, order, Restangular.all('orders'));
         }
 
 		function Product(product) {
 			this.ammount = 1;
-			this.product = product;
+			_.assignIn(this, product);
 		}
 
 		Product.prototype.getPrice = function() {
-			return this.ammount * this.product.price;
+			return this.ammount * this.price;
 		};
 
         Order.prototype.add = function(product) {
@@ -62,23 +63,31 @@
 		Order.prototype.create = function() {
             return this.post({
 				products: _.values(this.products).map(function(item) {
-					return item.product._id;
-				})
+					return item.barcode;
+				}),
+				address: this.address,
+				location: this.location
 			});
         };
 
 		Order.prototype.make = function() {
             return this.post({
 				products: _.values(this.products).map(function(item) {
-					return item.product._id;
+					return item._id;
 				}),
 				market: this.market
 			});
         };
 
+		Order.get = function(id) {
+			return Restangular.one('orders').get(id);
+		}
+
         Restangular.extendModel('orders', function(order) {
             return new Order(order);
         });
+
+		_.assignIn(Order, Restangular.service('orders'));
 
         // Return the constructor function
         return Order;

@@ -1,0 +1,23 @@
+<md-input-container md-no-float class="md-no-line md-no-errors mar-t-0 flex-center-align">
+    <i class="mdi mdi-magnify"></i>
+    <input ng-model="ctrl.filter" type="text" placeholder="{{::'FILTER' | translate}}">
+</md-input-container>
+
+<div class="categories grid-container" layout="row" layout-wrap>
+    <div ng-repeat="category in ctrl.categories | filter:ctrl.filter"
+        class="grid-item pointer"
+        ui-sref="order.products(::ctrl.getSrefParams(category._id))"
+        dy-flexible-flex
+        dy-affected-index="0,6,7"
+        dy-affected-flex="66"
+        dy-default-flex="33">
+
+        <div class="card product-category-card img-cover"
+             md-whiteframe="1"
+             dy-whiteframe-elevate="3"
+             dy-back-img="::category.image">
+            <h3 class="title md-title">{{::category.name}}</h3>
+        </div>
+
+    </div>
+</div>

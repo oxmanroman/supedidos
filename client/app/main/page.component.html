@@ -16,19 +16,11 @@
               md-whiteframe="1"
               name="ctrl.finderForm"
               ng-submit="ctrl.finder.search()">
-            <md-input-container class="md-block md-fixed-height" md-no-float flex-gt-sm>
+            <md-input-container class="md-block md-no-errors mar-0" md-no-float flex-gt-sm>
                 <input placeholder="{{::'YOUR_CITY' | translate}}" ng-model="ctrl.finder.city">
             </md-input-container>
-            <md-input-container class="md-block md-fixed-height" md-no-float flex-gt-sm>
+            <md-input-container class="md-block md-no-errors mar-0" md-no-float flex-gt-sm>
                 <input placeholder="{{::'YOUR_DIRECTION' | translate}}" ng-model="ctrl.finder.address">
-            </md-input-container>
-            <md-input-container class="md-block md-fixed-height" md-no-float flex-gt-sm>
-                <label>{{::'CATEGORY' | translate}}</label>
-                <md-select ng-model="ctrl.finder.category">
-                    <md-option ng-repeat="category in ::ctrl.categories" value="{{category._id}}">
-                        {{category.name}}
-                    </md-option>
-                </md-select>
             </md-input-container>
             <md-button type="submit" class="md-raised md-primary">{{::'START' | translate}}</md-button>
         </form>

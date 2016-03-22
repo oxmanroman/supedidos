@@ -1,12 +1,13 @@
 (function() {
    'use strict';
 
-   angular.module('deliveryYa', [
-       'deliveryYa.common',
-       'deliveryYa.main',
-       'deliveryYa.market',
-       'deliveryYa.product',
-       'deliveryYa.marketCategory'
+   angular.module('supedidos', [
+       'supedidos.common',
+       'supedidos.main',
+       'supedidos.market',
+       'supedidos.product',
+       'supedidos.productCategory',
+       'supedidos.order'
    ]);
 
     var commonLibs = [
@@ -23,9 +24,10 @@
     ];
 
     // Modules
-    angular.module('deliveryYa.common', commonLibs);
-    angular.module('deliveryYa.main', ['deliveryYa.common']);
-    angular.module('deliveryYa.market', ['deliveryYa.common']);
-    angular.module('deliveryYa.product', ['deliveryYa.common']);
-    angular.module('deliveryYa.marketCategory', ['deliveryYa.common']);
+    angular.module('supedidos.common', commonLibs);
+    angular.module('supedidos.main', ['supedidos.common']);
+    angular.module('supedidos.market', ['supedidos.common']);
+    angular.module('supedidos.product', ['supedidos.common']);
+    angular.module('supedidos.productCategory', ['supedidos.common']);
+    angular.module('supedidos.order', ['supedidos.common']);
 })();

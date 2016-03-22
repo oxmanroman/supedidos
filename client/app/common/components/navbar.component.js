@@ -2,12 +2,12 @@
 	'use strict';
 
 	angular
-		.module('deliveryYa.common')
+		.module('supedidos.common')
 		.directive('dyNavbar', dyNavbarDirective);
 
 	/**
 	 * @ngdoc directive
-	 * @name deliveryYa.common.directive:dyNavbar
+	 * @name supedidos.common.directive:dyNavbar
 	 * @restrict E
 	 * @scope
 	 *
