@@ -333,7 +333,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       options: {
         // This should be the name of your apps angular module
-        module: 'sitesApp',
+        module: 'supedidos',
         htmlmin: {
           collapseBooleanAttributes: true,
           collapseWhitespace: true,
@@ -654,7 +654,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
-      return grunt.task.run(['build', 'env:all', 'env:prod', 'express:prod', 'open', 'express-keepalive']);
+      return grunt.task.run(['build', 'env:all', 'env:prod', 'express:prod', 'open', 'keepalive']);
     }
 
     if (target === 'debug') {
@@ -788,25 +788,24 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('build', [
-    'clean:dist',
-    'concurrent:pre',
-    'concurrent:dist',
-    'injector',
-    'merge-json',
-    'wiredep:client',
-    'useminPrepare',
-    'postcss',
-    'ngtemplates',
-    'concat',
-    'ngAnnotate',
-    'copy:dist',
-    'babel:server',
-    'cdnify',
-    'cssmin',
-    'uglify',
-    'filerev',
-    'usemin',
-    'keepalive'
+      'clean:dist',
+      'injector:less',
+      'concurrent:dist',
+      'injector',
+      'merge-json',
+      'wiredep:client',
+      'useminPrepare',
+      'postcss',
+      'ngtemplates',
+      'concat',
+      'ngAnnotate',
+      'copy:dist',
+      'babel:server',
+      'cdnify',
+      'cssmin',
+      'uglify',
+      'filerev',
+      'usemin'
   ]);
 
   grunt.registerTask('default', [

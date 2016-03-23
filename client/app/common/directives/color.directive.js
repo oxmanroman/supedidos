@@ -3,23 +3,23 @@
 
     angular
         .module('supedidos.common')
-        .directive('dyColor', dyColorDirective);
+        .directive('spColor', spColorDirective);
 
     /**
      * @ngdoc directive
-     * @name supedidos.common.directive:dyColor
+     * @name supedidos.common.directive:spColor
      * @restrict A
      *
      * @description
      * Set color
      *
-	 * @param {string=}      dyColor   Image url
+	 * @param {string=}      spColor   Image url
      *
      */
 
-    dyColorDirective.$inject = ['$parse'];
+    spColorDirective.$inject = ['$parse'];
 
-    function dyColorDirective($parse) {
+    function spColorDirective($parse) {
         // Directive definition
         return {
             restrict: 'A',
@@ -27,7 +27,7 @@
         };
 
         function link (scope, elm, attrs) {
-            attrs.$observe('dyColor', function(value) {
+            attrs.$observe('spColor', function(value) {
     			var color = value.indexOf('#') === 0 ? value : $parse(value)(scope);
     			elm.css({
     				'color': color

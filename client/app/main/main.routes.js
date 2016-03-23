@@ -19,8 +19,8 @@
                 }
             },
             resolve: {
-                location: ['dyGeolocation', function(dyGeolocation) {
-                    return dyGeolocation.getByIp();
+                location: ['Geolocation', function(Geolocation) {
+                    return Geolocation.getByIp();
                 }],
                 markets: ['Market', function(Market) {
                     return Market.getList({limit: 5});

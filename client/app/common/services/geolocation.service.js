@@ -3,20 +3,20 @@
 
     angular
         .module('supedidos.common')
-        .service('dyGeolocation', dyGeolocationService);
+        .service('Geolocation', GeolocationService);
 
     /**
      * @ngdoc service
-     * @name supedidos.common.service:dyGeolocation
+     * @name supedidos.common.service:Geolocation
      *
      * @description
      * Alter html head and load external script
      *
      */
 
-    dyGeolocationService.$inject = ['$q', '$http'];
+    GeolocationService.$inject = ['$q', '$http'];
 
-    function dyGeolocationService($q, $http) {
+    function GeolocationService($q, $http) {
         // Service definition
         return {
             getByIp: getByIp,

@@ -3,11 +3,11 @@
 
     angular
         .module('supedidos.common')
-        .directive('dyWhiteframeElevate', dyWhiteframeElevateDirective);
+        .directive('spWhiteframeElevate', spWhiteframeElevateDirective);
 
     /**
      * @ngdoc directive
-     * @name supedidos.common.directive:dyWhiteframeElevate
+     * @name supedidos.common.directive:spWhiteframeElevate
      * @restrict A
      *
      * @description
@@ -19,9 +19,9 @@
      *
      */
 
-    dyWhiteframeElevateDirective.$inject = [];
+    spWhiteframeElevateDirective.$inject = [];
 
-    function dyWhiteframeElevateDirective() {
+    function spWhiteframeElevateDirective() {
         // Directive definition
         return {
             restrict: 'A',
@@ -30,7 +30,7 @@
 
         function link (scope, elm, attrs) {
             var elevation = 'md-whiteframe-' + attrs.mdWhiteframe + 'dp';
-            var hoverElevation = 'md-whiteframe-' + attrs.dyWhiteframeElevate + 'dp';
+            var hoverElevation = 'md-whiteframe-' + attrs.spWhiteframeElevate + 'dp';
 
             elm.on('mouseenter', function() {
                 elm.removeClass(elevation);

@@ -14,13 +14,13 @@
         <form class="finder"
               layout-gt-sm="row"
               md-whiteframe="1"
-              name="ctrl.finderForm"
-              ng-submit="ctrl.finder.search()">
+              name="ctrl.locationForm"
+              ng-submit="ctrl.search()">
             <md-input-container class="md-block md-no-errors mar-0" md-no-float flex-gt-sm>
-                <input placeholder="{{::'YOUR_CITY' | translate}}" ng-model="ctrl.finder.city">
+                <input placeholder="{{::'YOUR_CITY' | translate}}" ng-model="ctrl.order.location.city">
             </md-input-container>
             <md-input-container class="md-block md-no-errors mar-0" md-no-float flex-gt-sm>
-                <input placeholder="{{::'YOUR_DIRECTION' | translate}}" ng-model="ctrl.finder.address">
+                <input placeholder="{{::'YOUR_DIRECTION' | translate}}" ng-model="ctrl.order.location.address">
             </md-input-container>
             <md-button type="submit" class="md-raised md-primary">{{::'START' | translate}}</md-button>
         </form>
@@ -50,54 +50,3 @@
         </div>
     </section>
 </div>
-
-<section class="popular-markets pad-large max-size">
-    <h2 class="md-headline mar-t-0 mar-b-30">
-        {{::'POPULAR_PLACES_IN' | translate}} <a class="link">{{ctrl.finder.city}}</a>
-    </h2>
-
-    <div class="markets grid-container" layout="row" layout-wrap>
-        <a ng-repeat="market in ::ctrl.markets"
-           ui-sref="market({marketId: market._id, marketName: market.name})"
-           class="grid-item"
-           dy-relevant-cols
-           x-min-cols="2"
-           x-max-cols="3">
-
-            <div class="card market-card" md-whiteframe="1" dy-whiteframe-elevate="3">
-                <div class="img img-cover" dy-back-img="::market.category.image"></div>
-
-                <div class="bk-white pad">
-                    <small class="category" dy-color="::market.category.color">{{::market.category.name}}</small>
-                    <h3 class="name">{{::market.name}}</h3>
-                    <span class="description">{{::market.description | ellipsis: 140}}</span>
-                </div>
-            </div>
-        </a>
-    </div>
-</section>
-<!--
-<section class="categories pad-large max-size">
-    <h2 class="md-headline mar-t-0 mar-b-30">
-        {{::'CATEGORIES' | translate}}
-    </h2>
-
-    <div class="categories grid-container" layout="row" layout-wrap>
-        <div ng-repeat="category in ::ctrl.categories"
-            class="grid-item"
-            dy-flexible-flex
-            dy-affected-index="0,6,7"
-            dy-affected-flex="66"
-            dy-default-flex="33">
-
-            <div class="card category-card img-cover"
-                 md-whiteframe="1"
-                 dy-whiteframe-elevate="3"
-                 dy-back-img="::category.image">
-                <h3 class="title md-title">{{::category.name}}</h3>
-            </div>
-
-        </div>
-    </div>
-</section>
--->

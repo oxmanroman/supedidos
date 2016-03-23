@@ -34,11 +34,8 @@
 	function orderPageController($state, Order) {
 		var ctrl = this;
 
-		ctrl.order = new Order({
-			address: $state.params.addr,
-			location: [Number($state.params.lat), Number($state.params.lng)]
-		});
-		
+		ctrl.order = Order.getLocal();
+
 		ctrl.ammountNumbers = _.range(1, 100);
 
 		ctrl.submit = function() {

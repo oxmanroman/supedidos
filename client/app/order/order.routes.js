@@ -17,7 +17,7 @@
         })
 
         .state('order.productCategories', {
-            url: '/categorias?addr&lat&lng',
+            url: '/categorias',
             views: {
                 'order': {
                     template: '<order-product-categories categories="::categories"></order-product-categories>',
@@ -34,7 +34,7 @@
         })
 
         .state('order.products', {
-            url: '/{categoryId:[0-9]{1,10}}/productos?addr&lat&lng',
+            url: '/{categoryId:[0-9]{1,10}}/productos',
             views: {
                 'order': {
                     template: '<order-product-list products="::products" category="::category"></order-product-list>',
@@ -48,12 +48,17 @@
                 category: ['ProductCategory', '$stateParams', function(ProductCategory, $stateParams) {
                     return ProductCategory.get($stateParams.categoryId);
                 }],
-                products: ['Product', '$stateParams', function(Product, $stateParams) {
-                    return Product.getList({
-                        category: $stateParams.categoryId,
-                        lat: $stateParams.lat,
-                        lng: $stateParams.lng
-                    });
+                products: ['Product', '$state', '$stateParams', 'Order',
+                          function(Product, $state, $stateParams, Order) {
+                    var localOrder = Order.getLocal();
+                    if (!localOrder.location.coordinates) {
+                        $state.go('main');
+                    } else {
+                        return Product.getList(_.assign(
+                            {category: $stateParams.categoryId},
+                            localOrder.location.coordinates
+                        ));
+                    }
                 }]
             }
         })
@@ -66,7 +71,6 @@
                     controller: ['$scope', 'markets', 'order', function($scope, markets, order) {
                         $scope.markets = markets;
                         $scope.order = order;
-                        debugger;
                     }]
                 }
             },

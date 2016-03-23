@@ -15,6 +15,7 @@
         'ngMaterial',
         'pascalprecht.translate',
         // Back-end
+        'LocalStorageModule',
         'ngCookies',
         'ngResource',
         'ngSanitize',

@@ -3,23 +3,23 @@
 
     angular
         .module('supedidos.common')
-        .directive('dyBackImg', dyBackImgDirective);
+        .directive('spBackImg', spBackImgDirective);
 
     /**
      * @ngdoc directive
-     * @name supedidos.common.directive:dyBackImg
+     * @name supedidos.common.directive:spBackImg
      * @restrict A
      *
      * @description
      * Set background image
      *
-	 * @param {string=}      dyBackImg   Image url
+	 * @param {string=}      spBackImg   Image url
      *
      */
 
-    dyBackImgDirective.$inject = ['$parse'];
+    spBackImgDirective.$inject = ['$parse'];
 
-    function dyBackImgDirective($parse) {
+    function spBackImgDirective($parse) {
         // Directive definition
         return {
             restrict: 'A',
@@ -27,7 +27,7 @@
         };
 
         function link (scope, elm, attrs) {
-            attrs.$observe('dyBackImg', function(value) {
+            attrs.$observe('spBackImg', function(value) {
     			var url = value.indexOf('http') === 0 ? value : $parse(value)(scope);
     			elm.css({
     				'background-image': 'url(' + url + ')'

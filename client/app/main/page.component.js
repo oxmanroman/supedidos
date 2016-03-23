@@ -32,30 +32,31 @@
 		};
 	}
 
-	mainPageController.$inject = ['envConfig', 'dyGeolocation', '$state'];
+	mainPageController.$inject = ['envConfig', 'Geolocation', '$state', 'Order'];
 
-	function mainPageController(envConfig, dyGeolocation, $state) {
+	function mainPageController(envConfig, Geolocation, $state, Order) {
 		var ctrl = this;
 
 		ctrl.country = envConfig.country;
 
-		ctrl.finder = {
-			city: ctrl.location.city,
-			search: search
-		};
+		ctrl.order = Order.getLocal();
 
-		function search() {
-			var address = (ctrl.finder.address ? ctrl.finder.address + ', ' : '') +
-			              (ctrl.finder.city ? ctrl.finder.city : '');
-
-			dyGeolocation.getCoordinates(address + ctrl.country).then(function(coords) {
-				$state.go('order.productCategories', _.assign(
-					coords,
-					{ addr: address }
-				));
-			});
-
+		if (!ctrl.order.location.city) {
+			ctrl.order.location.city = ctrl.location.city;
 		}
+
+		ctrl.search = function() {
+			if (_.isMatch(Order.getLocal().location, ctrl.order.location)) {
+				$state.go('order.productCategories');
+			} else {
+				ctrl.order.clear();
+				ctrl.order.location.getCoordinates().then(function() {
+					ctrl.order.saveLocal();
+					$state.go('order.productCategories');
+				});
+			}
+
+		};
 	}
 
 })();

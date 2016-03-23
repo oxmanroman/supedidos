@@ -3,11 +3,11 @@
 
 	angular
 		.module('supedidos.common')
-		.directive('dyNavbar', dyNavbarDirective);
+		.directive('spNavbar', spNavbarDirective);
 
 	/**
 	 * @ngdoc directive
-	 * @name supedidos.common.directive:dyNavbar
+	 * @name supedidos.common.directive:spNavbar
 	 * @restrict E
 	 * @scope
 	 *
@@ -16,22 +16,22 @@
 	 *
 	 */
 
-	dyNavbarDirective.$inject = [];
+	spNavbarDirective.$inject = [];
 
-	function dyNavbarDirective() {
+	function spNavbarDirective() {
 		return {
 			restrict: 'E',
 			templateUrl: '/app/common/components/navbar.component.html',
 			scope: {},
-			controller: dyNavbarController,
+			controller: spNavbarController,
 			controllerAs: 'navCtrl',
 			bindToController: true
 		};
 	}
 
-	dyNavbarController.$inject = ['$stateParams', '$document', '$scope'];
+	spNavbarController.$inject = ['Order', '$document', '$scope'];
 
-	function dyNavbarController($stateParams, $document, $scope) {
+	function spNavbarController(Order, $document, $scope) {
 		var ctrl = this;
 
 		var body = angular.element($document[0].body);
@@ -40,7 +40,7 @@
 			body.removeClass('with-navbar');
 		});
 
-        ctrl.search = $stateParams.addr;
+        ctrl.search = Order.getLocal().location.getAddress();
 	}
 
 })();

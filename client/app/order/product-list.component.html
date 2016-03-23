@@ -10,7 +10,7 @@
     <input ng-model="ctrl.filter" type="text" placeholder="{{::'FILTER' | translate}}">
 </md-input-container>
 
-<div class="card product-category-card img-cover mar-b-20" dy-back-img="::ctrl.category.image">
+<div class="card product-category-card img-cover mar-b-20" sp-back-img="::ctrl.category.image">
     <h3 class="title md-title">{{::ctrl.category.name}}</h3>
 </div>
 
@@ -18,7 +18,7 @@
     <div ng-repeat="product in ctrl.products | filter:ctrl.filter" class="grid-item" flex="50">
         <div class="card product-card bk-white pad-small"
              md-whiteframe="1"
-             dy-whiteframe-elevate="2"
+             sp-whiteframe-elevate="2"
              ng-click="ctrl.order.add(product)">
             <div class="text">
                 <span class="name">{{::product.name}}</span>

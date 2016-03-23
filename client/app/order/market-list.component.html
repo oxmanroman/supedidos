@@ -6,16 +6,16 @@
 <div class="markets grid-container" layout="row" layout-wrap>
     <div ng-repeat="market in ctrl.markets | filter:ctrl.filter"
         class="grid-item pointer"
-        dy-flexible-flex
-        dy-affected-index="0,1"
-        dy-affected-flex="50"
-        dy-default-flex="33">
+        sp-flexible-flex
+        x-affected-index="0,1"
+        x-affected-flex="50"
+        x-default-flex="33">
 
         <div class="card market-card">
-            <div class="img img-cover" dy-back-img="::market.category.image"></div>
+            <div class="img img-cover" sp-back-img="::market.category.image"></div>
 
             <div class="bk-white pad">
-                <small class="category" dy-color="::market.category.color">{{::market.category.name}}</small>
+                <small class="category" sp-color="::market.category.color">{{::market.category.name}}</small>
                 <h3 class="name">{{::market.name}}</h3>
                 <span class="description">{{::market.description | ellipsis: 140}}</span>
 

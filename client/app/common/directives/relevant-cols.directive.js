@@ -3,11 +3,11 @@
 
     angular
         .module('supedidos.common')
-        .directive('dyRelevantCols', dyRelevantColsDirective);
+        .directive('spRelevantCols', spRelevantColsDirective);
 
     /**
      * @ngdoc directive
-     * @name supedidos.common.directive:dyRelevantCols
+     * @name supedidos.common.directive:spRelevantCols
      * @restrict A
      *
      * @description
@@ -19,9 +19,9 @@
      *
      */
 
-    dyRelevantColsDirective.$inject = [];
+    spRelevantColsDirective.$inject = [];
 
-    function dyRelevantColsDirective() {
+    function spRelevantColsDirective() {
         // Directive definition
         return {
             restrict: 'A',

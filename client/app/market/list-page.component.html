@@ -1,4 +1,4 @@
-<dy-navbar></dy-navbar>
+<sp-navbar></sp-navbar>
 
 <div class="pad-large max-size extra-col">
 
@@ -7,11 +7,11 @@
         <div ng-repeat="market in ::ctrl.markets"
              class="card market-card mar-b-20"
              md-whiteframe="1"
-             dy-whiteframe-elevate="3">
-            <div class="img img-cover" dy-back-img="::market.category.image"></div>
+             sp-whiteframe-elevate="3">
+            <div class="img img-cover" sp-back-img="::market.category.image"></div>
 
             <div class="bk-white pad">
-                <small class="category" dy-color="::market.category.color">{{::market.category.name}}</small>
+                <small class="category" sp-color="::market.category.color">{{::market.category.name}}</small>
                 <h3 class="name">{{::market.name}}</h3>
                 <span class="description">{{::market.description | ellipsis: 140}}</span>
 

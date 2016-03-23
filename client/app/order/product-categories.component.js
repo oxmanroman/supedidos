@@ -25,20 +25,9 @@
 			scope: {
 				categories: '='
 			},
-			controller: orderProductCategoriesController,
+			controller: angular.noop,
 			controllerAs: 'ctrl',
 			bindToController: true
-		};
-	}
-
-	orderProductCategoriesController.$inject = ['$stateParams'];
-
-	function orderProductCategoriesController($stateParams) {
-		var ctrl = this;
-
-		ctrl.getSrefParams = function(category) {
-			console.log(_.assign({category: category}, $stateParams));
-			return _.assign({categoryId: category}, $stateParams);
 		};
 	}
 

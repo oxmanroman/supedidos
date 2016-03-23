@@ -10,7 +10,20 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
       <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
@@ -24,7 +37,7 @@
       <!-- endinjector -->
     <!-- endbuild -->
   </head>
-  <body ng-app="supedidos" class="bk-grey">
+  <body ng-app="supedidos" class="bk-grey" sp-state-loader>
     <!--[if lt IE 7]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -64,14 +77,16 @@
       <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
       <script src="bower_components/restangular/dist/restangular.js"></script>
       <script src="bower_components/moment/moment.js"></script>
+      <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.tmp) app/app.js -->
       <script src="app/app.js"></script>
       <!-- injector:js -->
-      <script src="app/config/translate.js"></script>
+      <script src="app/config/routes.js"></script>
       <script src="app/common/app-helper.js"></script>
       <script src="app/common/components/stars-rating.component.js"></script>
+      <script src="app/common/components/state-loader.component.js"></script>
       <script src="app/common/directives/back-img.directive.js"></script>
       <script src="app/common/directives/color.directive.js"></script>
       <script src="app/common/directives/flexible-flex.directive.js"></script>
@@ -82,9 +97,10 @@
       <script src="app/common/filters/relative-time.filter.js"></script>
       <script src="app/common/services/geolocation.service.js"></script>
       <script src="app/config/env.js"></script>
+      <script src="app/config/local-storage.js"></script>
       <script src="app/config/restangular.js"></script>
-      <script src="app/config/routes.js"></script>
       <script src="app/common/components/navbar.component.js"></script>
+      <script src="app/config/translate.js"></script>
       <script src="app/main/main.routes.js"></script>
       <script src="app/main/page.component.js"></script>
       <script src="app/market/list-page.component.js"></script>

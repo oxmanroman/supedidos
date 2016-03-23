@@ -3,11 +3,11 @@
 
 	angular
 		.module('supedidos.common')
-		.directive('dyStarsRating', dyStarsRatingDirective);
+		.directive('spStarsRating', spStarsRatingDirective);
 
 	/**
 	 * @ngdoc directive
-	 * @name supedidos.common.directive:dyStarsRating
+	 * @name supedidos.common.directive:spStarsRating
 	 * @restrict E
 	 * @scope
 	 *
@@ -16,24 +16,24 @@
 	 *
 	 */
 
-	dyStarsRatingDirective.$inject = [];
+	spStarsRatingDirective.$inject = [];
 
-	function dyStarsRatingDirective() {
+	function spStarsRatingDirective() {
 		return {
 			restrict: 'E',
 			templateUrl: '/app/common/components/stars-rating.component.html',
 			scope: {
                 score: '='
             },
-			controller: dyStarsRatingController,
+			controller: spStarsRatingController,
 			controllerAs: 'ctrl',
 			bindToController: true
 		};
 	}
 
-	dyStarsRatingController.$inject = [];
+	spStarsRatingController.$inject = [];
 
-	function dyStarsRatingController() {
+	function spStarsRatingController() {
 		var ctrl = this;
 
         var filled = Math.floor(ctrl.score);

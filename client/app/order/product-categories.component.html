@@ -6,16 +6,16 @@
 <div class="categories grid-container" layout="row" layout-wrap>
     <div ng-repeat="category in ctrl.categories | filter:ctrl.filter"
         class="grid-item pointer"
-        ui-sref="order.products(::ctrl.getSrefParams(category._id))"
-        dy-flexible-flex
-        dy-affected-index="0,6,7"
-        dy-affected-flex="66"
-        dy-default-flex="33">
+        ui-sref="order.products({categoryId: category._id})"
+        sp-flexible-flex
+        x-affected-index="0,6,7"
+        x-affected-flex="66"
+        x-default-flex="33">
 
         <div class="card product-category-card img-cover"
              md-whiteframe="1"
-             dy-whiteframe-elevate="3"
-             dy-back-img="::category.image">
+             sp-whiteframe-elevate="3"
+             sp-back-img="::category.image">
             <h3 class="title md-title">{{::category.name}}</h3>
         </div>
 

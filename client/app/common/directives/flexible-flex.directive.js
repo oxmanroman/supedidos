@@ -3,11 +3,11 @@
 
     angular
         .module('supedidos.common')
-        .directive('dyFlexibleFlex', dyFlexibleFlexDirective);
+        .directive('spFlexibleFlex', spFlexibleFlexDirective);
 
     /**
      * @ngdoc directive
-     * @name supedidos.common.directive:dyFlexibleFlex
+     * @name supedidos.common.directive:spFlexibleFlex
      * @restrict A
      *
      * @description
@@ -19,9 +19,9 @@
      *
      */
 
-    dyFlexibleFlexDirective.$inject = [];
+    spFlexibleFlexDirective.$inject = [];
 
-    function dyFlexibleFlexDirective() {
+    function spFlexibleFlexDirective() {
         // Directive definition
         return {
             restrict: 'A',
@@ -30,10 +30,10 @@
 
         function link (scope, elm, attrs) {
             var flex;
-            if (attrs.dyAffectedIndex.split(',').indexOf(String(scope.$index)) !== -1) {
-                flex = attrs.dyAffectedFlex;
+            if (attrs.affectedIndex.split(',').indexOf(String(scope.$index)) !== -1) {
+                flex = attrs.affectedFlex;
             } else {
-                flex = attrs.dyDefaultFlex;
+                flex = attrs.defaultFlex;
             }
 
             elm.addClass('flex-' + flex);
