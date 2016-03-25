@@ -1,19 +1,19 @@
 'use strict';
 
 var list = [
-    { name: 'Arroz', image: 'http://rackcdn.recetasparaadelgazar.com/wp-content/uploads/2015/06/arroz011.jpg' },
-    { name: 'Garbanzos', image: 'http://static.hogarmania.com/archivos/201204/garbanzos-regular-colesterol-xl-668x400x80xX.jpg' },
-    { name: 'Condimentos', image: 'https://igdigital.com/wp-content/uploads/2015/05/especias-y-condimentos.jpg' },
-    { name: 'Aderezos', image: 'http://www.misanplas.com.ar/wp-content/uploads/2013/04/aderezo-456x250.jpg' },
-    { name: 'Salsas', image: 'http://mejorconsalud.com/wp-content/uploads/2015/07/salsas-para-ensaladas-500x334.jpg' },
-    { name: 'Azúcar', image: 'http://cfxtras.com/wp-content/uploads/2016/03/el-azucar-produce-reflujo-gastrico-descubre-que-es-bueno-para-la-acidez.jpg' },
-    { name: 'Golosinas', image: 'https://vivirmasvivirmejor.files.wordpress.com/2014/11/tumblr_static_candy_largewide.jpg' },
-    { name: 'Harina', image: 'http://buenavibra.es/wp-content/uploads/2015/10/harina.jpg' },
-    { name: 'Huevos', image: 'http://eldiariodelasalud.com/wp-content/uploads/2015/10/huevos.jpg' },
-    { name: 'Puré', image: 'http://www.dosanclas.com.ar/wp-content/files_mf/recetacaseradepur%C3%A9depapa11.jpg' },
-    { name: 'Postres', image: 'http://postresrapidos.net/wp-content/uploads/2014/06/consejos-para-preparar-postres.jpg' },
-    { name: 'Sopas', image: 'http://cde.3.elcomercio.pe/ima/0/1/1/7/7/1177815/558x367.jpg' },
-    { name: 'Caldos', image: 'http://caldoecia.com.br/wp-content/uploads/2011/05/caldos1-1020x400.jpg' }
+    { name: 'Arroz', image: '//s3-us-west-2.amazonaws.com/supedidos/assets/img/product-categories/rice.jpg' },
+    { name: 'Garbanzos', image: '//s3-us-west-2.amazonaws.com/supedidos/assets/img/product-categories/chickpeas.jpg' },
+    { name: 'Condimentos', image: '//s3-us-west-2.amazonaws.com/supedidos/assets/img/product-categories/spices.jpg' },
+    { name: 'Aderezos', image: '//s3-us-west-2.amazonaws.com/supedidos/assets/img/product-categories/condiments.jpg' },
+    { name: 'Salsas', image: '//s3-us-west-2.amazonaws.com/supedidos/assets/img/product-categories/sauces.jpg' },
+    { name: 'Azúcar', image: '//s3-us-west-2.amazonaws.com/supedidos/assets/img/product-categories/sugar.jpg' },
+    { name: 'Golosinas', image: '//s3-us-west-2.amazonaws.com/supedidos/assets/img/product-categories/candies.jpg' },
+    { name: 'Harina', image: '//s3-us-west-2.amazonaws.com/supedidos/assets/img/product-categories/flour.jpg' },
+    { name: 'Huevos', image: '//s3-us-west-2.amazonaws.com/supedidos/assets/img/product-categories/eggs.jpg' },
+    { name: 'Puré', image: '//s3-us-west-2.amazonaws.com/supedidos/assets/img/product-categories/mashed-potatoes.jpg' },
+    { name: 'Postres', image: '//s3-us-west-2.amazonaws.com/supedidos/assets/img/product-categories/desserts.jpg' },
+    { name: 'Sopas', image: '//s3-us-west-2.amazonaws.com/supedidos/assets/img/product-categories/soups.jpg' },
+    { name: 'Caldos', image: '//s3-us-west-2.amazonaws.com/supedidos/assets/img/product-categories/broths.jpg' }
 ];
 
 exports.list = list.map(function(category, index) {

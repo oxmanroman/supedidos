@@ -9,16 +9,20 @@
 
 	function OrderFactory(Restangular, localStorageService, envConfig, Geolocation) {
 
+		var storageKey = 'order-inprogress';
+
         // Constructor
         function Order(order) {
 			var self = this;
 			self.products = {};
+			self.location = new Location(order ? order.location : null);
 			if (order) {
 				_.forIn(order.products, function(product, productId) {
 					self.products[productId] = new Product(product);
 				});
-				self.location = new Location(order.location);
 			}
+			_.assignIn(self, Restangular.service('orders'));
+			_.assignIn(self, _.omit(order, ['products', 'location']));
         }
 
 		function Location(location) {
@@ -60,10 +64,16 @@
 
         Order.prototype.remove = function(productId) {
             delete this.products[productId];
+			this.saveLocal();
         };
 
 		Order.prototype.clear = function() {
 			this.products = {};
+			this.saveLocal();
+		};
+
+		Order.prototype.delete = function() {
+			localStorageService.remove(storageKey);
 		};
 
         Order.prototype.count = function(id) {
@@ -87,22 +97,13 @@
 				products: _.values(this.products).map(function(item) {
 					return item.barcode;
 				}),
-				address: this.address,
-				location: this.location
-			});
-        };
-
-		Order.prototype.make = function() {
-            return this.post({
-				products: _.values(this.products).map(function(item) {
-					return item._id;
-				}),
-				market: this.market
+				address: this.location.address,
+				location: this.location.coordinates
 			});
         };
 
 		Order.prototype.saveLocal = function() {
-			localStorageService.set('order', this);
+			localStorageService.set(storageKey, this);
 		};
 
 		Order.get = function(id) {
@@ -110,7 +111,7 @@
 		};
 
 		Order.getLocal = function() {
-			return new Order(localStorageService.get('order'));
+			return new Order(localStorageService.get(storageKey));
 		};
 
         Restangular.extendModel('orders', function(order) {

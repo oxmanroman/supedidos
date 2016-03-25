@@ -14,6 +14,7 @@
         // UI
         'ngMaterial',
         'pascalprecht.translate',
+        'angularLazyImg',
         // Back-end
         'LocalStorageModule',
         'ngCookies',

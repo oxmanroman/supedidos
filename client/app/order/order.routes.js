@@ -76,16 +76,10 @@
             },
             resolve: {
                 markets: ['Market', '$stateParams', function(Market, $stateParams) {
-                    return Market.one('order', $stateParams.orderId).getList().then(function(list) {
-                        console.log('ready market list', list);
-                        return list;
-                    });
+                    return Market.one('order', $stateParams.orderId).getList();
                 }],
                 order: ['Order', '$stateParams', function(Order, $stateParams) {
-                    return Order.get($stateParams.orderId).then(function(order) {
-                        console.log('ready market order', order);
-                        return order;
-                    });
+                    return Order.one($stateParams.orderId).get();
                 }]
             }
         });

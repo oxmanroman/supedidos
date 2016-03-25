@@ -73,3 +73,13 @@
         </ul> -->
     </div>
 </div>
+
+<div class="mb-only mb-view-order" ng-if="!ctrl.order.isEmpty()">
+    <!-- Make order button -->
+    <md-button type="submit" class="md-raised md-primary cta">
+        {{::'VIEW_ORDER' | translate}}
+        (<span translate="PRICE"
+               translate-values="::{price: '{{ctrl.order.getPrice() | number:2}}'}">
+            </span>)
+    </md-button>
+</div>

@@ -61,7 +61,9 @@ function removeEntity(res) {
 
 // Gets a list of Categories
 export function index(req, res) {
-  ProductCategory.findAsync()
+  ProductCategory.find()
+    .sort('name')
+    .execAsync()
     .then(responseWithResult(res))
     .catch(handleError(res));
 }

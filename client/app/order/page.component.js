@@ -40,6 +40,7 @@
 
 		ctrl.submit = function() {
 			ctrl.order.create().then(function(order) {
+				ctrl.order.delete();
 				$state.go('order.markets', {orderId: order._id});
 			});
 		};

@@ -1,8 +1,12 @@
 main-page {
     section.banner {
-        height: 400px;
+        padding-bottom: 50px;
         background: @primaryColor;
         color: @whiteColor;
+        background-image: url('//s3-us-west-2.amazonaws.com/supedidos/assets/img/backgrounds/main.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
         .nav-bar {
             margin-bottom: 20px;
         }
@@ -10,8 +14,10 @@ main-page {
             text-align: center;
             .title {
                 margin-bottom: 15px;
+                font-weight: bold;
             }
             .subtitle {
+                font-weight: bold;
                 margin-bottom: 50px;
                 display: block;
                 color: rgba(255, 255, 255, 0.8);
@@ -28,26 +34,54 @@ main-page {
                 height: 36px;
                 margin: 0;
             }
-            > *:not(:last-child) {
-                margin-right: 20px;
-            }
         }
     }
     section.instructions {
-        background-color: @whiteColor;
         .step {
             text-align: center;
             padding: 0 10px;
-            i {
-                font-size: 45px;
-                color: rgba(0,0,0,.5);
+            .img {
+                display: flex;
+                align-items: center;
+                img {
+                    margin: 0 auto;
+                }
             }
             .title {
-                margin: 10px 0 15px;
+                margin: 12px 0;
             }
             span {
                 color: rgba(0,0,0,.7);
             }
+        }
+    }
+}
+
+@media @pc {
+    main-page {
+        section.banner .finder {
+            > *:not(:last-child) {
+                margin-right: 20px;
+            }
+        }
+        section.instructions .step .img {
+            height: 120px;
+        }
+    }
+}
+
+@media @mobile {
+    main-page {
+        section.banner .finder {
+            > *:not(:last-child) {
+                margin-bottom: 16px;
+            }
+            button {
+                width: 100%;
+            }
+        }
+        section.instructions .step {
+            margin-bottom: 30px;
         }
     }
 }

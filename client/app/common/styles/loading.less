@@ -1,0 +1,49 @@
+.loading-cover {
+    opacity: 0;
+    transition: @transitionTime;
+    background: rgba(255, 255, 255, 0.7);
+    &:extend(.full-abs);
+    &.active {
+        opacity: 1;
+    }
+    &:not(.active) {
+        pointer-events: none;
+    }
+}
+
+@offset: 106;
+@duration: 1.4s;
+
+.loader-spinner {
+    width: 56px;
+    height: 56px;
+    margin: 30px auto;
+
+    .spin {
+        animation: rotator @duration linear infinite;
+    }
+    .path {
+        stroke: @primaryColor;
+        stroke-dasharray: @offset;
+        stroke-dashoffset: 0;
+        transform-origin: center;
+        animation: dash @duration ease-in-out infinite;
+    }
+}
+
+@keyframes rotator {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(270deg); }
+}
+
+@keyframes dash {
+ 0% { stroke-dashoffset: @offset; }
+ 50% {
+   stroke-dashoffset: @offset/4;
+   transform:rotate(135deg);
+ }
+ 100% {
+   stroke-dashoffset: @offset;
+   transform:rotate(450deg);
+ }
+}

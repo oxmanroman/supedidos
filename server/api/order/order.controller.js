@@ -73,7 +73,7 @@ export function show(req, res) {
 // Creates a new Order in the DB
 export function create(req, res) {
     var order = req.body;
-    order.location = { type: 'Point', coordinates: order.location};
+    order.location = { type: 'Point', coordinates: [order.location.lng, order.location.lat] };
 
     Order.createAsync(order)
           .then(responseWithResult(res, 201))

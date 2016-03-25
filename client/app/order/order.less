@@ -44,7 +44,21 @@ order-page {
                 width: 100%;
             }
         }
-
+    }
+    .mb-view-order {
+        position: fixed;
+        z-index: 10;
+        bottom: 0;
+        padding: 15px 25px;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        background: linear-gradient(rgba(255, 255, 255, 0.2), white);
+        button {
+            width: 100%;
+            margin: 0;
+            padding: 6px 0;
+        }
     }
 }
 
@@ -105,5 +119,11 @@ order-product-list {
         &:hover {
             .actions button:extend(order-product-list .product-card .actions button:hover) {}
         }
+    }
+}
+
+@media @mobile {
+    order-page > .pad-large {
+        padding-bottom: 58px;
     }
 }
