@@ -333,7 +333,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       options: {
         // This should be the name of your apps angular module
-        module: 'supedidos',
+        module: 'supedidos.templates',
         htmlmin: {
           collapseBooleanAttributes: true,
           collapseWhitespace: true,
@@ -392,7 +392,12 @@ module.exports = function (grunt) {
             'package.json',
             '<%= yeoman.server %>/**/*'
           ]
-        }]
+          }, {
+            expand: true,
+            cwd: '.tmp/lang',
+            dest: '<%= yeoman.dist %>/<%= yeoman.client %>/lang',
+            src: ['**/*.json']
+          }]
       },
       styles: {
         expand: true,

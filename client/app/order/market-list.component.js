@@ -21,7 +21,7 @@
 	function orderMarketListDirective() {
 		return {
 			restrict: 'E',
-			templateUrl: '/app/order/market-list.component.html',
+			templateUrl: 'app/order/market-list.component.html',
 			scope: {
 				markets: '='
 			},

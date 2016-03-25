@@ -21,7 +21,7 @@
 	function spStarsRatingDirective() {
 		return {
 			restrict: 'E',
-			templateUrl: '/app/common/components/stars-rating.component.html',
+			templateUrl: 'app/common/components/stars-rating.component.html',
 			scope: {
                 score: '='
             },

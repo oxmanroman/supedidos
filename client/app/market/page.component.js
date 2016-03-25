@@ -21,7 +21,7 @@
 	function marketPageDirective() {
 		return {
 			restrict: 'E',
-			templateUrl: '/app/market/page.component.html',
+			templateUrl: 'app/market/page.component.html',
 			scope: {
 				market: '='
 			},

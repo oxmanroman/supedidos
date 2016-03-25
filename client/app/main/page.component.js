@@ -21,7 +21,7 @@
 	function mainPageDirective() {
 		return {
 			restrict: 'E',
-			templateUrl: '/app/main/page.component.html',
+			templateUrl: 'app/main/page.component.html',
 			scope: {
 				location: '=',
 				markets: '='

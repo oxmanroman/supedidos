@@ -21,7 +21,7 @@
 	function orderPageDirective() {
 		return {
 			restrict: 'E',
-			templateUrl: '/app/order/page.component.html',
+			templateUrl: 'app/order/page.component.html',
 			scope: {},
 			controller: orderPageController,
 			controllerAs: 'ctrl',

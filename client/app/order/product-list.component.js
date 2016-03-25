@@ -21,7 +21,7 @@
 	function orderProductListDirective() {
 		return {
 			restrict: 'E',
-			templateUrl: '/app/order/product-list.component.html',
+			templateUrl: 'app/order/product-list.component.html',
 			scope: {
 				products: '=',
 				category: '='

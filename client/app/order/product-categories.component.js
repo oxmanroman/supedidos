@@ -21,7 +21,7 @@
 	function orderProductCategoriesDirective() {
 		return {
 			restrict: 'E',
-			templateUrl: '/app/order/product-categories.component.html',
+			templateUrl: 'app/order/product-categories.component.html',
 			scope: {
 				categories: '='
 			},

@@ -21,7 +21,7 @@
 	function marketListPageDirective() {
 		return {
 			restrict: 'E',
-			templateUrl: '/app/market/list-page.component.html',
+			templateUrl: 'app/market/list-page.component.html',
 			scope: {
 				markets: '=',
 				categories: '='

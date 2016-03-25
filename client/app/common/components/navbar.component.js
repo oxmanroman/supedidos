@@ -21,7 +21,7 @@
 	function spNavbarDirective() {
 		return {
 			restrict: 'E',
-			templateUrl: '/app/common/components/navbar.component.html',
+			templateUrl: 'app/common/components/navbar.component.html',
 			scope: {},
 			controller: spNavbarController,
 			controllerAs: 'navCtrl',

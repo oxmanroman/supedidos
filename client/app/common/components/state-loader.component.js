@@ -23,7 +23,7 @@
 			restrict: 'A',
 			compile: function() {
 				// Get the template
-				var loadingUrl = '/app/common/components/state-loader.component.html';
+				var loadingUrl = 'app/common/components/state-loader.component.html';
 
 				return function link (scope, element) {
                     $templateRequest(loadingUrl).then(function(template) {
