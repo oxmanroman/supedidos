@@ -2,7 +2,6 @@ main-page {
     section.banner {
         position: relative;
         height: 500px;
-        background: @primaryColor;
         background-image: url('//s3-us-west-2.amazonaws.com/supedidos/assets/img/backgrounds/main-banner.jpg');
         .nav-bar {
             color: @whiteColor;
@@ -31,7 +30,7 @@ main-page {
             position: absolute;
             left: 50%;
             bottom: 0;
-            transform: translateX(-50%) translateY(50%);
+            transform: translate(-50%, 50%);
             flex-wrap: wrap;
             align-items: center;
             margin: 0 auto;
@@ -80,18 +79,16 @@ main-page {
         }
     }
     section.advantages {
-        padding-bottom: 40px;
-        display: flex;
-        align-items: center;
-        > * {
-            position: relative;
-            top: 60px;
-        }
+        padding: 100px;
+        position: relative;
+        display: block;
         > img {
-            height: 520px;
+            height: 100%;
+            position: absolute;
+            top: 50px;
+            left: 10px;
         }
         .info {
-            margin: 0 100px 0 auto;
             .subtitle {
                 display: block;
                 margin-bottom: 40px;
@@ -172,7 +169,7 @@ main-page {
                 position: absolute;
                 top: 0;
                 left: 0;
-                transform: translateX(-50%) translateY(-50%);
+                transform: translate(-50%, -50%);
                 pointer-events: none;
                 background: white;
                 color: @secondaryText;
