@@ -17,7 +17,9 @@
     "restangular": "^1.5.2",
     "moment": "^2.11.2",
     "angular-local-storage": "^0.2.7",
-    "angular-lazy-img": "^1.2.2"
+    "angular-lazy-img": "^1.2.2",
+    "angular-parallax": "^0.0.2",
+    "angular-carousel": "^1.0.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.0"

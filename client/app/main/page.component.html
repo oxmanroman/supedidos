@@ -1,58 +1,158 @@
-<section class="banner" layout-padding>
+<section class="banner bg-image">
     <div class="nav-bar clearfix">
+        <span class="logo light"></span>
         <md-button class="flr">{{::'LOGIN' | translate}}</md-button>
         <md-button class="flr">{{::'REGISTER' | translate}}</md-button>
     </div>
 
-    <div class="info max-size">
-        <h1 class="title md-display-1">{{::'DELIVERY_IN_MINUTES' | translate}}</h1>
-        <span class="subtitle md-headline"
-              translate="LOT_OF_MARKETS_IN_COUNTRY"
-              translate-values="::{ country: '{{ctrl.country}}'}">
-        </span>
+    <div class="info">
+        <h1 class="title md-display-1">{{::'WHAT_YOU_NEED_FROM_HOME' | translate}}</h1>
+        <span class="subtitle md-headline">{{::'REDUCE_TIME_AND_COSTS' | translate}}</span>
+    </div>
 
-        <form class="finder"
-              layout-gt-sm="row"
-              md-whiteframe="1"
-              name="ctrl.locationForm"
-              ng-submit="ctrl.search()">
-            <md-input-container class="md-block md-no-errors mar-0" md-no-float flex-gt-sm>
-                <input placeholder="{{::'YOUR_CITY' | translate}}" ng-model="ctrl.order.location.city">
-            </md-input-container>
-            <md-input-container class="md-block md-no-errors mar-0" md-no-float flex-gt-sm>
-                <input placeholder="{{::'YOUR_DIRECTION' | translate}}" ng-model="ctrl.order.location.address">
-            </md-input-container>
-            <md-button type="submit" class="md-raised md-primary">{{::'START' | translate}}</md-button>
-        </form>
+    <form class="finder"
+          layout-gt-sm="row"
+          md-whiteframe="1"
+          name="ctrl.locationForm"
+          ng-submit="ctrl.search()">
+        <span class="title">{{::'SEARCH_PRODUCTS_NEAR_HOME' | translate}}</span>
+        <md-input-container class="md-block md-no-errors mar-0" md-no-float flex-gt-sm>
+            <input placeholder="{{::'YOUR_CITY' | translate}}" ng-model="ctrl.order.location.city">
+        </md-input-container>
+        <md-input-container class="md-block md-no-errors mar-0" md-no-float flex-gt-sm>
+            <input placeholder="{{::'YOUR_DIRECTION' | translate}}" ng-model="ctrl.order.location.address">
+        </md-input-container>
+        <md-button type="submit" class="md-raised md-primary">{{::'START' | translate}}</md-button>
+    </form>
+</section>
 
+<section class="intro bg-white">
+    <div class="info">
+        <h1 class="title md-display-1">Tu pedido en tus manos</h1>
+        <span class="subtitle">Realizá el pedido en cuestión de minutos</span>
+        <p>
+            Fusce vehicula dolor arcu, sit amet blandit dolor mollis nec. Donec viverra eleifend lacus, vitae ullamcorper metus. Sed sollicitudin ipsum quis nunc sollicitudin ultrices. Donec euismod scelerisque ligula.
+        </p>
+    </div>
+    <img src="//s3-us-west-2.amazonaws.com/supedidos/assets/img/main/notebook-page.png" parallax parallax-ratio="0.2"/>
+</section>
+
+<section class="advantages">
+    <img lazy-img="//s3-us-west-2.amazonaws.com/supedidos/assets/img/main/grocery-bag.png" parallax parallax-ratio="0.2"/>
+    <div class="info">
+        <h1 class="title md-display-1">El lugar donde vos ganás</h1>
+        <span class="subtitle">Buscamos darte todas las ventajas posibles</span>
+        <div class="items grid-container layout-wrap layout-row">
+            <div class="advantage grid-item" flex="50">
+                <i class="mdi mdi-currency-usd"></i>
+                <div class="text">
+                    <span>Más barato</span>
+                    <p>Encontrá el lugar más barato para hacer tu pedido</p>
+                </div>
+            </div>
+            <div class="advantage grid-item" flex="50">
+                <i class="mdi mdi-timelapse"></i>
+                <div class="text">
+                    <span>Más rápido</span>
+                    <p>Todos los lugares y todos los productos en la palma de tu mano</p>
+                </div>
+            </div>
+            <div class="advantage grid-item" flex="50">
+                <i class="mdi mdi-star"></i>
+                <div class="text">
+                    <span>Mejor calidad</span>
+                    <p>Evaluá la calidad de los lugares de antemano, mirá los comentarios</p>
+                </div>
+            </div>
+            <div class="advantage grid-item" flex="50">
+                <i class="mdi mdi-home"></i>
+                <div class="text">
+                    <span>A tu casa</span>
+                    <p>¿No te alcanza con todo lo otro? El pedido también te llega a tu casa</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<div>
-    <section class="instructions pad-large max-size">
-        <h2 class="md-headline mar-t-0 mar-b-30">{{::'DELIVERY_MADE_EASY' | translate}}</h2>
-        <div layout-gt-sm="row">
-            <div class="step" flex-gt-sm>
-                <div class="img">
-                    <img lazy-img="//s3-us-west-2.amazonaws.com/supedidos/assets/img/main-stepper/browse.png"/>
-                </div>
-                <h3 class="title md-title">{{::'CHOOSE' | translate}}</h3>
-                <span>{{::'CHOOSE_PLACE_AND_PRODUCTS' | translate}}</span>
-            </div>
-            <div class="step" flex-gt-sm>
-                <div class="img">
-                    <img lazy-img="//s3-us-west-2.amazonaws.com/supedidos/assets/img/main-stepper/shop.png"/>
-                </div>
-                <h3 class="title md-title">{{::'MAKE_YOUR_ORDER' | translate}}</h3>
-                <span>{{::'WAIT_FOR_CONFIRMATION' | translate}}</span>
-            </div>
-            <div class="step" flex-gt-sm>
-                <div class="img">
-                    <img lazy-img="//s3-us-west-2.amazonaws.com/supedidos/assets/img/main-stepper/wallet.png"/>
-                </div>
-                <h3 class="title md-title">{{::'GET_IT_HOME' | translate}}</h3>
-                <span>{{::'DONT_MOVE_WAIT_FOR_IT' | translate}}</span>
-            </div>
+<section class="faq bg-white">
+    <h1 class="title md-display-1">Preguntas frequentes</h1>
+    <div class="items grid-container layout-wrap layout-row">
+        <div class="question grid-item" flex="50">
+            <span>¿Me sale más barato comprar directamente en el súpermercado?</span>
+            <p>Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi.</p>
         </div>
-    </section>
-</div>
+        <div class="question grid-item" flex="50">
+            <span>¿Me sale más barato comprar directamente en el súpermercado?</span>
+            <p>Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi.</p>
+        </div>
+        <div class="question grid-item" flex="50">
+            <span>¿Me sale más barato comprar directamente en el súpermercado?</span>
+            <p>Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi.</p>
+        </div>
+        <div class="question grid-item" flex="50">
+            <span>¿Me sale más barato comprar directamente en el súpermercado?</span>
+            <p>Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi.</p>
+        </div>
+    </div>
+</section>
+
+<section class="quotes bg-image bg-white"
+         lazy-img="//s3-us-west-2.amazonaws.com/supedidos/assets/img/backgrounds/city-street.jpg"
+         parallax-background
+         parallax-ratio="0.2">
+    <div class="box bg-white" md-whiteframe="3">
+        <md-button class="md-fab">
+            <i class="mdi mdi-format-quote"></i>
+        </md-button>
+        <ul rn-carousel
+            rn-carousel-index="ctrl.quotesCarouselIndex"
+            rn-carousel-auto-slide="6"
+            rn-carousel-duration="500">
+            <li ng-repeat="quote in ctrl.quotes">
+                <p>
+                    {{::quote.text}}
+                </p>
+                <md-list-item class="person md-2-line">
+                  <img lazy-img="{{::quote.autor.pic}}" class="md-avatar"/>
+                  <div class="md-list-item-text">
+                    <h3>{{::quote.autor.name}}</h3>
+                    <p>{{::quote.autor.job}}</p>
+                  </div>
+                </md-list-item>
+            </li>
+            <li>
+                <p>
+                    Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi id commodo mi consectr.
+                </p>
+                <md-list-item class="person md-2-line">
+                  <img lazy-img="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAaBAAAAJGJjNThkYzA5LTk1MmQtNDJlZC1iYjhiLWRkMTIwYjgwNjVhNQ.jpg" class="md-avatar"/>
+                  <div class="md-list-item-text">
+                    <h3>Diego Roitman</h3>
+                    <p>CEO Triceratops</p>
+                  </div>
+                </md-list-item>
+            </li>
+            <li>
+                <p>
+                    Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi id commodo mi consectr.
+                </p>
+                <md-list-item class="person md-2-line">
+                  <img lazy-img="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAaBAAAAJGJjNThkYzA5LTk1MmQtNDJlZC1iYjhiLWRkMTIwYjgwNjVhNQ.jpg" class="md-avatar"/>
+                  <div class="md-list-item-text">
+                    <h3>Diego Roitman</h3>
+                    <p>CEO Triceratops</p>
+                  </div>
+                </md-list-item>
+            </li>
+        </ul>
+        <div rn-carousel-indicators
+             rn-carousel-index="ctrl.quotesCarouselIndex"
+             slides="ctrl.quotes">
+        </div>
+    </div>
+</section>
+
+<section class="footer">
+    <span class="copyright">© 2015 SUPEDIDOS - ALL RIGHTS RESERVED</span>
+</section>
