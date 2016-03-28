@@ -52,56 +52,36 @@ main-page {
     section:not(.banner) {
         h1.title {
             margin: 0 0 20px 0;
-            font-size: 45px;
+            font-size: 2.8em;
         }
         .subtitle {
-            font-size: 25px;
+            font-size: 1.5em;
         }
     }
     section.intro {
-        padding: 151px 0 100px;
-        display: flex;
-        align-items: center;
         .info {
-            max-width: 500px;
-            margin-left: 100px;
-            flex: 1;
             p {
                 color: @secondaryText;
                 line-height: 32px;
                 margin-top: 30px;
-                font-size: 20px;
+                font-size: 1.25em;
             }
-        }
-        > img {
-            margin-left: auto;
-            height: 440px;
         }
     }
     section.advantages {
-        padding: 100px;
         position: relative;
         display: block;
-        > img {
-            height: 100%;
-            position: absolute;
-            top: 50px;
-            left: 10px;
-        }
         .info {
             .subtitle {
                 display: block;
                 margin-bottom: 40px;
             }
             .items {
-                margin: -20px;
-                width: 740px;
                 .advantage {
-                    padding: 20px;
                     display: flex;
                     max-width: 350px;
                     i {
-                        font-size: 40px;
+                        font-size: 2.5em;
                         margin-right: 20px;
                         &.mdi-currency-usd {
                             color: #70BF41;
@@ -117,7 +97,7 @@ main-page {
                         }
                     }
                     span {
-                        font-size: 20px;
+                        font-size: 1.25em;
                     }
                     p {
                         margin: 8px 0 0;
@@ -130,17 +110,10 @@ main-page {
     }
     section.faq {
         flex-wrap: wrap;
-        padding: 100px;
-        h1.title {
-            text-align: center;
-            margin-bottom: 70px;
-        }
         .items {
-            margin: -30px -20px;
             .question {
-                padding: 30px 20px;
                 span {
-                    font-size: 20px;
+                    font-size: 1.25em;
                 }
                 p {
                     margin: 15px 0 0;
@@ -155,12 +128,8 @@ main-page {
         display: flex;
         align-items: flex-end;
         overflow: hidden;
-        > div {
-            margin: 0 auto;
-        }
         .box {
             position: relative;
-            width: 500px;
             height: 220px;
             border-top-left-radius: 3px;
             border-top-right-radius: 3px;
@@ -194,7 +163,7 @@ main-page {
                 transform: translateX(-50%);
                 span {
                     margin: 0 8px;
-                    font-size: 24px;
+                    font-size: 1.5em;
                     color: lighten(@secondaryText, 40%);
                     transition: color @transitionTime;
                     &.active {
@@ -205,9 +174,8 @@ main-page {
         }
     }
     section.footer {
-        padding: 20px 100px;
         .copyright {
-            font-size: 14px;
+            font-size: 0.9em;
             font-weight: bold;
             color: @secondaryText;
         }
@@ -221,18 +189,118 @@ main-page {
                 margin-right: 20px;
             }
         }
+        section.intro {
+            padding: 151px 0 100px;
+            display: flex;
+            align-items: center;
+            .info {
+                max-width: 500px;
+                margin-left: 100px;
+                flex: 1;
+            }
+            > img {
+                margin-left: auto;
+                height: 440px;
+            }
+        }
+        section.advantages {
+            padding: 100px;
+            > img {
+                height: 100%;
+                position: absolute;
+                top: 50px;
+                left: 10px;
+            }
+            .info {
+                .items {
+                    margin: -20px;
+                    width: 740px;
+                    .advantage {
+                        padding: 20px;
+                    }
+                }
+            }
+        }
+        section.faq {
+            padding: 100px;
+            h1.title {
+                text-align: center;
+                margin-bottom: 70px;
+            }
+            .items {
+                margin: -30px -20px;
+                .question {
+                    padding: 30px 20px;
+                }
+            }
+        }
+        section.quotes {
+            > div {
+                margin: 0 auto;
+            }
+            .box {
+                position: relative;
+                width: 500px;
+            }
+        }
+        section.footer {
+            padding: 20px 100px;
+        }
     }
 }
 
 @media @mobile {
     main-page {
-        section.banner .finder {
-            > *:not(:last-child) {
-                margin-bottom: 16px;
+        section.banner {
+            .info {
+                width: 90%;
+                .title {
+                    white-space: normal;
+                    font-size: 30px;
+                    margin: 6px;
+                }
+                .subtitle {
+                    font-size: 16px;
+                }
             }
-            button {
-                width: 100%;
+            .finder {
+                width: 80%;
+                > span {
+                    display: block;
+                }
+                > *:not(:last-child) {
+                    margin-bottom: 16px;
+                }
+                button {
+                    width: 100%;
+                }
             }
+        }
+        section.intro {
+            padding: 155px 8% 60px 8%;
+            > img {
+                display: none;
+            }
+        }
+        section.advantages {
+            padding: 60px 8%;
+            > img {
+                display: none;
+            }
+            .info {
+                float: none;
+            }
+        }
+        section.faq {
+            padding: 60px 8%;
+        }
+        section.quotes {
+            > div {
+                flex-basis: 100%;
+            }
+        }
+        section.footer {
+            padding: 20px 8%;
         }
     }
 }
