@@ -32,11 +32,11 @@
         <span class="subtitle">{{::'INTRO_SUBTITLE' | translate}}</span>
         <p>{{'INTRO_PARAGRAPH' | translate}}</p>
     </div>
-    <img src="//s3-us-west-2.amazonaws.com/supedidos/assets/img/main/notebook-page.png" sp-parallax x-vertical-margin="50" />
+    <img src="//s3-us-west-2.amazonaws.com/supedidos/assets/img/main/notebook-page.png" sp-parallax x-vertical-margin="80" />
 </section>
 
 <section class="advantages clearfix">
-    <img lazy-img="//s3-us-west-2.amazonaws.com/supedidos/assets/img/main/grocery-bag.png" sp-parallax x-vertical-margin="50" />
+    <img lazy-img="//s3-us-west-2.amazonaws.com/supedidos/assets/img/main/grocery-bag.png" sp-parallax x-vertical-margin="80" />
     <div class="info flr">
         <h1 class="title md-display-1">{{::'ADVANTAGES_TITLE' | translate}}</h1>
         <span class="subtitle">{{::'ADVANTAGES_SUBTITLE' | translate}}</span>
@@ -100,54 +100,51 @@
          sp-parallax-background
          x-ratio="0.2">
     <div class="box bg-white" md-whiteframe="3">
-        <md-button class="md-fab">
+        <md-button class="md-fab" aria-label="{{::'QUOTE' | translate}}">
             <i class="mdi mdi-format-quote"></i>
         </md-button>
-        <ul rn-carousel
-            rn-carousel-index="ctrl.quotesCarouselIndex"
-            rn-carousel-auto-slide="6"
-            rn-carousel-duration="500">
-            <li ng-repeat="quote in ctrl.quotes">
-                <p>
-                    {{::quote.text}}
-                </p>
+        <sp-carousel x-duration="6000">
+            <sp-carousel-item class="person-quote">
+                <p>Nunca antes había probado algo igual, ahora que lo uso puedo decir que administro mejor mi dinero, ahorro hasta un 20% en las compras de cada mes solo por usar SuPedidos.</p>
                 <md-list-item class="person md-2-line">
-                  <img lazy-img="{{::quote.autor.pic}}" class="md-avatar"/>
+                  <img lazy-img="https://media.licdn.com/mpr/mpr/shrink_100_100/AAEAAQAAAAAAAAUFAAAAJGY5ZTc0MDRlLWE0MzQtNGI2ZS1hMTBhLTk3N2M3ZTUzMGNjOQ.jpg" class="md-avatar"/>
                   <div class="md-list-item-text">
-                    <h3>{{::quote.autor.name}}</h3>
-                    <p>{{::quote.autor.job}}</p>
+                    <h3>Román Suárez</h3>
+                    <p>CEO SuPedidos</p>
                   </div>
                 </md-list-item>
-            </li>
-            <li>
-                <p>
-                    Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi id commodo mi consectr.
-                </p>
+            </sp-carousel-item>
+            <sp-carousel-item class="person-quote">
+                <p>Simple, intuitiva y valiosa, uno no necesita instrucciones para empezar a usar SuPedidos y puede apreciar su valor al instante, en mi opinión es una herramienta muy necesaria que todos deberíamos usar.</p>
                 <md-list-item class="person md-2-line">
-                  <img lazy-img="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAaBAAAAJGJjNThkYzA5LTk1MmQtNDJlZC1iYjhiLWRkMTIwYjgwNjVhNQ.jpg" class="md-avatar"/>
+                  <img lazy-img="https://media.licdn.com/mpr/mpr/shrink_100_100/AAEAAQAAAAAAAAUFAAAAJGY5ZTc0MDRlLWE0MzQtNGI2ZS1hMTBhLTk3N2M3ZTUzMGNjOQ.jpg" class="md-avatar"/>
                   <div class="md-list-item-text">
-                    <h3>Diego Roitman</h3>
-                    <p>CEO Triceratops</p>
+                    <h3>Román Suárez</h3>
+                    <p>CEO SuPedidos</p>
                   </div>
                 </md-list-item>
-            </li>
-            <li>
-                <p>
-                    Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi id commodo mi consectr.
-                </p>
+            </sp-carousel-item>
+            <sp-carousel-item class="person-quote">
+                <p>Al principio escuché de esto y pensé que era un chiste, ¿una herramienta que me iba a hacer ahorrar plata y de forma gratuita? Era verdad, y se llama SuPedidos.</p>
                 <md-list-item class="person md-2-line">
-                  <img lazy-img="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAaBAAAAJGJjNThkYzA5LTk1MmQtNDJlZC1iYjhiLWRkMTIwYjgwNjVhNQ.jpg" class="md-avatar"/>
+                  <img lazy-img="https://media.licdn.com/mpr/mpr/shrink_100_100/AAEAAQAAAAAAAAUFAAAAJGY5ZTc0MDRlLWE0MzQtNGI2ZS1hMTBhLTk3N2M3ZTUzMGNjOQ.jpg" class="md-avatar"/>
                   <div class="md-list-item-text">
-                    <h3>Diego Roitman</h3>
-                    <p>CEO Triceratops</p>
+                    <h3>Román Suárez</h3>
+                    <p>CEO SuPedidos</p>
                   </div>
                 </md-list-item>
-            </li>
-        </ul>
-        <div rn-carousel-indicators
-             rn-carousel-index="ctrl.quotesCarouselIndex"
-             slides="ctrl.quotes">
-        </div>
+            </sp-carousel-item>
+            <sp-carousel-item class="person-quote">
+                <p>Quisiera haber empezado a usar SuPedidos desde hace ya años, me habría ahorrado una cantidad de tiempo y plata invaluable, desde que conozco SuPedidos no hay una sola compra a los supermercados que no haga por allí.</p>
+                <md-list-item class="person md-2-line">
+                  <img lazy-img="https://media.licdn.com/mpr/mpr/shrink_100_100/AAEAAQAAAAAAAAUFAAAAJGY5ZTc0MDRlLWE0MzQtNGI2ZS1hMTBhLTk3N2M3ZTUzMGNjOQ.jpg" class="md-avatar"/>
+                  <div class="md-list-item-text">
+                    <h3>Román Suárez</h3>
+                    <p>CEO SuPedidos</p>
+                  </div>
+                </md-list-item>
+            </sp-carousel-item>
+        </sp-carousel>
     </div>
 </section>
 

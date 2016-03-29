@@ -16,7 +16,6 @@
         'ngMaterial',
         'pascalprecht.translate',
         'angularLazyImg',
-        'angular-carousel',
         // Back-end
         'LocalStorageModule',
         'ngCookies',

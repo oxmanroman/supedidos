@@ -56,31 +56,6 @@
 				});
 			}
 		};
-
-		ctrl.quotes = [
-			{
-				text: 'Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi id commodo mi consectr.',
-				autor: {
-					name: 'Diego Roitman',
-					job: 'CEO Triceratops',
-					pic: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAaBAAAAJGJjNThkYzA5LTk1MmQtNDJlZC1iYjhiLWRkMTIwYjgwNjVhNQ.jpg'
-				}
-			}, {
-				text: 'Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi id commodo mi consectr.',
-				autor: {
-					name: 'Diego Roitman',
-					job: 'CEO Triceratops',
-					pic: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAaBAAAAJGJjNThkYzA5LTk1MmQtNDJlZC1iYjhiLWRkMTIwYjgwNjVhNQ.jpg'
-				}
-			}, {
-				text: 'Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi id commodo mi consectr.',
-				autor: {
-					name: 'Diego Roitman',
-					job: 'CEO Triceratops',
-					pic: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAaBAAAAJGJjNThkYzA5LTk1MmQtNDJlZC1iYjhiLWRkMTIwYjgwNjVhNQ.jpg'
-				}
-			}
-		];
 	}
 
 })();

@@ -1,0 +1,9 @@
+<ng-transclude class="items"></ng-transclude>
+
+<div class="indicators">
+    <span ng-repeat="item in ::carouselCtrl.items"
+          ng-class="{active: $index === carouselCtrl.activeIndex}"
+          ng-click="carouselCtrl.changeIndex($index)">
+        ●
+    </span>
+</div>

@@ -144,32 +144,29 @@ main-page {
                 color: @secondaryText;
                 font-size: 26px;
             }
-            ul {
-                height: 100%;
-                li {
-                    p {
-                        color: @secondaryText;
-                        line-height: 26px;
-                    }
-                    .person {
-                        padding: 0;
+            .person-quote {
+                flex-direction: column;
+                display: flex;
+                > p {
+                    color: @secondaryText;
+                    line-height: 26px;
+                    overflow: hidden;
+                    flex-grow: 1;
+                    margin: 0 0 30px 0;
+                }
+                .person {
+                    padding: 0;
+                    flex-grow: 0;
+                    > * {
+                        margin-top: 0;
                     }
                 }
             }
-            div.rn-carousel-indicator {
+            sp-carousel .indicators {
                 position: absolute;
                 bottom: 30px;
                 left: 50%;
                 transform: translateX(-50%);
-                span {
-                    margin: 0 8px;
-                    font-size: 1.5em;
-                    color: lighten(@secondaryText, 40%);
-                    transition: color @transitionTime;
-                    &.active {
-                        color: @secondaryText;
-                    }
-                }
             }
         }
     }
@@ -190,7 +187,7 @@ main-page {
             }
         }
         section.intro {
-            padding: 151px 0 100px;
+            padding: 100px 0;
             display: flex;
             align-items: center;
             .info {

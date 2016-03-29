@@ -16,19 +16,24 @@
         };
 
         function link (scope, elm, attrs) {
-
+            var lastTranslation;
             function setPosition() {
                 var middleFromTop = elm[0].getBoundingClientRect().top + (elm[0].offsetHeight / 2);
                 var middleOfWindow = ($window.innerHeight / 2);
                 var translation = (middleFromTop - middleOfWindow) * 1 / middleOfWindow;
                 var parsedTranslation = translation < 0 ? 0 : translation;
-                elm.css('transform', 'translateY(' + (attrs.verticalMargin * parsedTranslation) + 'px)');
+                if (lastTranslation !== parsedTranslation) {
+                    lastTranslation = parsedTranslation;
+                    elm.css('transform', 'translateY(' + (attrs.verticalMargin * parsedTranslation) + 'px)');
+                }
             }
 
             setPosition();
 
-            angular.element($window).bind('scroll', setPosition);
-            angular.element($window).bind('touchmove', setPosition);
+            elm.bind('load', setPosition);
+
+            angular.element($window).bind('scroll', _.throttle(setPosition, 25));
+            angular.element($window).bind('touchmove', _.throttle(setPosition, 25));
         }
     }
 
@@ -47,9 +52,13 @@
             var ratio = Number(attrs.ratio);
             elm.css('background-size', 'calc(100% * ' + (ratio + 1) + ')');
 
+            var lastPosition;
             function setPosition() {
                 var calcValY = -(elm.prop('offsetTop') - $window.pageYOffset) * ratio;
-                elm.css('background-position', '50% ' + calcValY + 'px');
+                if (lastPosition !== calcValY) {
+                    lastPosition = calcValY;
+                    elm.css('background-position', '50% ' + calcValY + 'px');
+                }
             }
 
             // set our initial position - fixes webkit background render bug
@@ -58,8 +67,8 @@
                 scope.$apply();
             });
 
-            angular.element($window).bind('scroll', setPosition);
-            angular.element($window).bind('touchmove', setPosition);
+            angular.element($window).bind('scroll', _.throttle(setPosition, 25));
+            angular.element($window).bind('touchmove', _.throttle(setPosition, 25));
         }
     }
 })();

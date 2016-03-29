@@ -21,3 +21,35 @@ sp-navbar {
         }
     }
 }
+
+sp-carousel {
+    overflow: hidden;
+    display: block;
+    > .items {
+        display: flex;
+        transition: transform @transitionLargeTime;
+        sp-carousel-item {
+            display: block;
+            flex: 0 0 100%;
+        }
+    }
+    .indicators {
+        text-align: center;
+        span {
+            cursor: pointer;
+            margin: 0 8px;
+            font-size: 1.5em;
+            color: lighten(@secondaryText, 40%);
+            transition: color @transitionTime;
+            &.active {
+                color: @secondaryText;
+            }
+            &:hover:not(.active) {
+                color: lighten(@secondaryText, 30%);
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
