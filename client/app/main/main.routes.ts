@@ -1,9 +1,13 @@
-(function() {
-    'use strict';
+module supedidos.main {
+	'use strict';
 
-    appConfig.$inject = ['$stateProvider'];
+	angular
+		.module('supedidos.main')
+		.config(config);
 
-    function appConfig($stateProvider) {
+	config.$inject = ['$stateProvider'];
+
+	function config($stateProvider) {
         $stateProvider
 
         .state('main', {
@@ -12,7 +16,7 @@
                 'main': {
                     template: '<main-page location="::location" markets="::markets"></main-page>',
                     controller: ['$scope', 'location', 'markets',
-                    function($scope, location, markets) {
+                    ($scope, location, markets) => {
                         $scope.location = location;
                         $scope.markets = markets;
                     }]
@@ -27,9 +31,5 @@
                 }]
             }
         });
-    }
-
-    angular
-        .module('supedidos.main')
-        .config(appConfig);
-})();
+	}
+}

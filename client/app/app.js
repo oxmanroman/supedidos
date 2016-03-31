@@ -4,6 +4,7 @@
    angular.module('supedidos', [
        'supedidos.templates',
        'supedidos.common',
+       'supedidos.config',
        'supedidos.main',
        'supedidos.market',
        'supedidos.product',
@@ -28,6 +29,7 @@
 
     // Modules
     angular.module('supedidos.common', commonLibs);
+    angular.module('supedidos.config', ['supedidos.common']);
     angular.module('supedidos.templates', ['supedidos.common']);
     angular.module('supedidos.main', ['supedidos.common']);
     angular.module('supedidos.market', ['supedidos.common']);

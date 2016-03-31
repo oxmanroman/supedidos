@@ -1,0 +1,12 @@
+module supedidos.config {
+	'use strict';
+
+	angular
+		.module('supedidos.config')
+        {% constants.forEach(function(constant) { %}.constant('{%- constant.name %}', {%- constant.name %}()){% }) %};
+    {% constants.forEach(function(constant) { %}
+    function {%- constant.name %}() {
+        return {%= constant.value %};
+    }
+    {% }) %}
+}

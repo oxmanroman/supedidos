@@ -1,10 +1,10 @@
-(function() {
-   'use strict';
+module supedidos.config {
+	'use strict';
 
-   angular
-       .module('supedidos')
-       .config(appConfig)
-       .run(appRun);
+	angular
+		.module('supedidos.config')
+		.config(appConfig)
+        .run(appRun);
 
     appConfig.$inject = ['$translateProvider', 'envConfig'];
 
@@ -29,4 +29,4 @@
     	});
     }
 
-})();
+}

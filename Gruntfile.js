@@ -1,8 +1,10 @@
+/* jshint node: true */
 'use strict';
 
 module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-merge-json');
+  grunt.loadNpmTasks('grunt-ts');
 
   var localConfig;
   try {
@@ -62,6 +64,10 @@ module.exports = function (grunt) {
       babel: {
         files: ['<%= yeoman.client %>/{app,components}/**/!(*.spec|*.mock).js'],
         tasks: ['newer:babel:client']
+      },
+      ts: {
+        files: ['<%= yeoman.client %>/{app,components}/**/!(*.spec|*.mock).ts'],
+        tasks: ['ts:client']
       },
       ngconstant: {
         files: ['config.env.json'],
@@ -307,10 +313,11 @@ module.exports = function (grunt) {
     ngconstant: {
       options: {
         name: 'supedidos',
-        dest: '<%= yeoman.client %>/app/config/env.js',
+        dest: '<%= yeoman.client %>/app/config/env.ts',
         deps: false,
-        wrap: true,
-        configPath: 'config.env'
+        wrap: false,
+        configPath: 'config.env',
+        template: grunt.file.read('custom-constant.tpl.ejs')
       },
       app: {
         constants: function() {
@@ -570,6 +577,23 @@ module.exports = function (grunt) {
       }
     },
 
+    ts: {
+        client : {
+            tsconfig: true,
+            src: ['../typings/tsd.d.ts', 'app/**/!(*.spec|*.mock).ts'],
+            outDir: '.tmp',
+            options: {
+                fast: 'never',
+                rootDir: '<%= yeoman.client %>'
+            }
+        },
+        server : {
+            tsconfig: true,
+            src: ['typings/tsd.d.ts', '<%= yeoman.server %>/**/*.ts'],
+            outDir: '<%= yeoman.dist %>/<%= yeoman.server %>'
+        }
+    },
+
     // Compiles Less to CSS
     less: {
       server: {
@@ -657,140 +681,21 @@ module.exports = function (grunt) {
     this.async();
   });
 
-  grunt.registerTask('serve', function (target) {
-    if (target === 'dist') {
-      return grunt.task.run(['build', 'env:all', 'env:prod', 'express:prod', 'open', 'keepalive']);
-    }
-
-    if (target === 'debug') {
-      return grunt.task.run([
-        'clean:server',
-        'env:all',
-        'concurrent:pre',
-        'concurrent:server',
-        'injector',
-        'merge-json',
-        'wiredep:client',
-        'postcss',
-        'concurrent:debug',
-        'keepalive'
-      ]);
-    }
-
-    grunt.task.run([
-      'clean:server',
-      'env:all',
-      'concurrent:pre',
-      'concurrent:server',
-      'injector',
-      'merge-json',
-      'wiredep:client',
-      'postcss',
-      'express:dev',
-      'open',
-      'watch',
-      'keepalive'
-    ]);
-  });
-
-  grunt.registerTask('server', function () {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve']);
-  });
-
-  grunt.registerTask('test', function(target, option) {
-    if (target === 'server') {
-      return grunt.task.run([
-        'env:all',
-        'env:test',
-        'mochaTest:unit',
-        'mochaTest:integration'
-      ]);
-    }
-
-    else if (target === 'client') {
-      return grunt.task.run([
-        'clean:server',
-        'env:all',
-        'concurrent:pre',
-        'concurrent:test',
-        'injector',
-        'merge-json',
-        'postcss',
-        'wiredep:test',
-        'karma'
-      ]);
-    }
-
-    else if (target === 'e2e') {
-
-      if (option === 'prod') {
-        return grunt.task.run([
-          'build',
-          'env:all',
-          'env:prod',
-          'express:prod',
-          'protractor'
-        ]);
-      }
-
-      else {
-        return grunt.task.run([
-          'clean:server',
-          'env:all',
-          'env:test',
-          'concurrent:pre',
-          'concurrent:test',
-          'injector',
-          'merge-json',
-          'wiredep:client',
-          'postcss',
-          'express:dev',
-          'protractor'
-        ]);
-      }
-    }
-
-    else if (target === 'coverage') {
-
-      if (option === 'unit') {
-        return grunt.task.run([
-          'env:all',
-          'env:test',
-          'mocha_istanbul:unit'
-        ]);
-      }
-
-      else if (option === 'integration') {
-        return grunt.task.run([
-          'env:all',
-          'env:test',
-          'mocha_istanbul:integration'
-        ]);
-      }
-
-      else if (option === 'check') {
-        return grunt.task.run([
-          'istanbul_check_coverage'
-        ]);
-      }
-
-      else {
-        return grunt.task.run([
-          'env:all',
-          'env:test',
-          'mocha_istanbul',
-          'istanbul_check_coverage'
-        ]);
-      }
-
-    }
-
-    else grunt.task.run([
-      'test:server',
-      'test:client'
-    ]);
-  });
+  grunt.registerTask('serve', [
+    'clean:server',
+    'env:all',
+    'concurrent:pre',
+    'concurrent:server',
+    'ts:client',
+    'injector',
+    'merge-json',
+    'wiredep:client',
+    'postcss',
+    'express:dev',
+    'open',
+    'watch',
+    'keepalive'
+  ]);
 
   grunt.registerTask('build', [
       'clean:dist',
@@ -810,12 +715,12 @@ module.exports = function (grunt) {
       'cssmin',
       'uglify',
       'filerev',
-      'usemin'
+      'usemin',
+      'env:all',
+      'env:prod',
+      'express:prod',
+      'open',
+      'keepalive'
   ]);
 
-  grunt.registerTask('default', [
-    'newer:jshint',
-    'test',
-    'build'
-  ]);
 };
