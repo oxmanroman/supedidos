@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('supedidos.common')
+        .module('supedidos.common.directives')
         .directive('spParallax', spParallaxDirective)
         .directive('spParallaxBackground', spParallaxBackgroundDirective);
 

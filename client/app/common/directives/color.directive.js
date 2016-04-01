@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('supedidos.common')
+        .module('supedidos.common.directives')
         .directive('spColor', spColorDirective);
 
     /**
      * @ngdoc directive
-     * @name supedidos.common.directive:spColor
+     * @name supedidos.common.directives.directive:spColor
      * @restrict A
      *
      * @description

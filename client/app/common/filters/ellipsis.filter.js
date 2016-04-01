@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('supedidos.common')
+        .module('supedidos.common.filters')
         .filter('ellipsis', ellipsisFilter);
 
     /**
      * @ngdoc filter
-     * @name supedidos.common.filter:ellipsis
+     * @name supedidos.common.filters.filter:ellipsis
      * @restrict A
      *
      * @description

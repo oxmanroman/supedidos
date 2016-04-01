@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('supedidos.common')
+        .module('supedidos.common.services')
         .service('Geolocation', GeolocationService);
 
     /**
      * @ngdoc service
-     * @name supedidos.common.service:Geolocation
+     * @name supedidos.common.services.service:Geolocation
      *
      * @description
      * Alter html head and load external script

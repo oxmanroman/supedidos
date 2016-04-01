@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('supedidos.common')
+        .module('supedidos.common.directives')
         .directive('spWhiteframeElevate', spWhiteframeElevateDirective);
 
     /**
      * @ngdoc directive
-     * @name supedidos.common.directive:spWhiteframeElevate
+     * @name supedidos.common.directives.directive:spWhiteframeElevate
      * @restrict A
      *
      * @description

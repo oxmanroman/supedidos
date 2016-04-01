@@ -2,12 +2,12 @@
 	'use strict';
 
 	angular
-		.module('supedidos.common')
+		.module('supedidos.common.components')
 		.directive('spNavbar', spNavbarDirective);
 
 	/**
 	 * @ngdoc directive
-	 * @name supedidos.common.directive:spNavbar
+	 * @name supedidos.common.components.directive:spNavbar
 	 * @restrict E
 	 * @scope
 	 *

@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('supedidos.common')
+        .module('supedidos.common.directives')
         .directive('spFlexibleFlex', spFlexibleFlexDirective);
 
     /**
      * @ngdoc directive
-     * @name supedidos.common.directive:spFlexibleFlex
+     * @name supedidos.common.directives.directive:spFlexibleFlex
      * @restrict A
      *
      * @description

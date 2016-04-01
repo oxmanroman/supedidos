@@ -2,12 +2,12 @@
 	'use strict';
 
 	angular
-		.module('supedidos.common')
+		.module('supedidos.common.components')
 		.directive('spStateLoader', spStateLoaderDirective);
 
 	/**
 	 * @ngdoc directive
-	 * @name supedidos.common.directive:spStateLoader
+	 * @name supedidos.common.components.directive:spStateLoader
 	 * @restrict E
 	 * @scope
 	 *

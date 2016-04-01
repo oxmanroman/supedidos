@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('supedidos.common')
+        .module('supedidos.common.directives')
         .directive('spBackImg', spBackImgDirective);
 
     /**
      * @ngdoc directive
-     * @name supedidos.common.directive:spBackImg
+     * @name supedidos.common.directives.directive:spBackImg
      * @restrict A
      *
      * @description

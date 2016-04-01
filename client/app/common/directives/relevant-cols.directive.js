@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('supedidos.common')
+        .module('supedidos.common.directives')
         .directive('spRelevantCols', spRelevantColsDirective);
 
     /**
      * @ngdoc directive
-     * @name supedidos.common.directive:spRelevantCols
+     * @name supedidos.common.directives.directive:spRelevantCols
      * @restrict A
      *
      * @description

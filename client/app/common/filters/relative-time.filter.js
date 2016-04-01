@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('supedidos.common')
+        .module('supedidos.common.filters')
         .filter('relativeTime', relativeTimeFilter);
 
     /**
      * @ngdoc filter
-     * @name supedidos.common.filter:relativeTime
+     * @name supedidos.common.filters.filter:relativeTime
      * @restrict A
      *
      * @description

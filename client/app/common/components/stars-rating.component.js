@@ -2,12 +2,12 @@
 	'use strict';
 
 	angular
-		.module('supedidos.common')
+		.module('supedidos.common.components')
 		.directive('spStarsRating', spStarsRatingDirective);
 
 	/**
 	 * @ngdoc directive
-	 * @name supedidos.common.directive:spStarsRating
+	 * @name supedidos.common.components.directive:spStarsRating
 	 * @restrict E
 	 * @scope
 	 *

@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('supedidos.common')
+		.module('supedidos.common.components')
 		.directive('spCarousel', spCarouselDirective);
 
 	spCarouselDirective.$inject = [];

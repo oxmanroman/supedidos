@@ -4,6 +4,10 @@
    angular.module('supedidos', [
        'supedidos.templates',
        'supedidos.common',
+       'supedidos.common.components',
+       'supedidos.common.directives',
+       'supedidos.common.filters',
+       'supedidos.common.services',
        'supedidos.config',
        'supedidos.main',
        'supedidos.market',
@@ -29,6 +33,10 @@
 
     // Modules
     angular.module('supedidos.common', commonLibs);
+    angular.module('supedidos.common.components', []);
+    angular.module('supedidos.common.directives', []);
+    angular.module('supedidos.common.filters', []);
+    angular.module('supedidos.common.services', []);
     angular.module('supedidos.config', ['supedidos.common']);
     angular.module('supedidos.templates', ['supedidos.common']);
     angular.module('supedidos.main', ['supedidos.common']);
