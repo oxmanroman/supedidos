@@ -42,6 +42,25 @@
       ga('send', 'pageview');
     </script>
 
+    <!-- Facebook SDK -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '613358152156063',
+                xfbml      : true,
+                version    : 'v2.5'
+            });
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
@@ -65,12 +84,13 @@
       <script src="bower_components/moment/moment.js"></script>
       <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
       <script src="bower_components/angular-lazy-img/release/angular-lazy-img.js"></script>
+      <script src="bower_components/rxjs/dist/rx.all.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.tmp) app/app.js -->
       <script src="app/app.js"></script>
       <!-- injector:js -->
-      <script src="app/config/local-storage.js"></script>
+      <script src="app/config/lazy-img.js"></script>
       <script src="app/common/app-helper.js"></script>
       <script src="app/common/components/navbar.component.js"></script>
       <script src="app/common/components/stars-rating.component.js"></script>
@@ -85,18 +105,16 @@
       <script src="app/common/filters/relative-distance.filter.js"></script>
       <script src="app/common/filters/relative-time.filter.js"></script>
       <script src="app/common/services/geolocation.service.js"></script>
+      <script src="app/common/services/route-allowed.service.js"></script>
       <script src="app/config/env.js"></script>
-      <script src="app/config/lazy-img.js"></script>
       <script src="app/common/components/carousel.component.js"></script>
+      <script src="app/config/local-storage.js"></script>
       <script src="app/config/restangular.js"></script>
       <script src="app/config/routes.js"></script>
       <script src="app/config/translate.js"></script>
       <script src="app/main/main.routes.js"></script>
       <script src="app/main/page.component.js"></script>
-      <script src="app/market/list-page.component.js"></script>
       <script src="app/market/market.model.js"></script>
-      <script src="app/market/market.routes.js"></script>
-      <script src="app/market/page.component.js"></script>
       <script src="app/order/market-list.component.js"></script>
       <script src="app/order/order-model.js"></script>
       <script src="app/order/order.routes.js"></script>
@@ -105,6 +123,7 @@
       <script src="app/order/product-list.component.js"></script>
       <script src="app/order/product.model.js"></script>
       <script src="app/product-category/product-category.model.js"></script>
+      <script src="app/user/auth.service.js"></script>
       <!-- endinjector -->
     <!-- endbuild -->
   </body>
