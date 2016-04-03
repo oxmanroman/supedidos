@@ -13,6 +13,41 @@ module supedidos.common {
     };
 
     /**
+     * Compose functions to create a controller function for a state
+     */
+    export function composeCtrl(...composablesFns) {
+        var injection = _.union.apply(_, composablesFns.map(fn => fn.$inject));
+
+        composedController.$inject = injection;
+        function composedController(...args) {
+            var ctrl = this;
+            composablesFns.forEach(composableFn => {
+                var fnInjection = composableFn.$inject.map((module) => {
+                    return args[injection.indexOf(module)];
+                });
+                composableFn.apply(ctrl, fnInjection);
+            });
+        };
+        return composedController;
+    }
+
+    /**
+     * Create a function that injects the angular keys passed in the obj of the parameters
+     * and expose the keys in the scope named as the value
+     */
+    export function passCtrlData(modules : IInjectionObject) {
+        var injection = _.union(['$scope'], _.keys(modules));
+        ctrl.$inject = injection;
+        function ctrl(...args) {
+            var $scope = args[0];
+            _.slice(injection, 1).map((module, index) => {
+                $scope[modules[module]] = args[index + 1];
+            });
+        }
+        return ctrl;
+    }
+
+    /**
      * Injects the RouteAllowed and runs the execOnAuthChange with injected module
      *
      * This function assumes:

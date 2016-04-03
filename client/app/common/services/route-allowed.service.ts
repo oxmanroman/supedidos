@@ -1,6 +1,6 @@
 module supedidos.common {
 
-	import AC = supedidos.common;
+	import SP = supedidos.common;
 
 	interface ICheckFn {
 		() : ng.IPromise<boolean>;
@@ -50,7 +50,7 @@ module supedidos.common {
             }
 		}
 
-		falsyToBool(psConstructor:AC.IPromiseConstructor) : AC.IPromiseConstructor {
+		falsyToBool(psConstructor:SP.IPromiseConstructor) : SP.IPromiseConstructor {
 			return () => {
 				return psConstructor().then((res) => {
 					return res ? true : false;
@@ -58,7 +58,7 @@ module supedidos.common {
 			}
 		}
 
-		truthyToBool(psConstructor:AC.IPromiseConstructor) : AC.IPromiseConstructor {
+		truthyToBool(psConstructor:SP.IPromiseConstructor) : SP.IPromiseConstructor {
 			return () => {
 				return psConstructor().then((res) => {
 					return res ? false : true;
@@ -66,7 +66,7 @@ module supedidos.common {
 			}
 		}
 
-		errorToBool(psConstructor:AC.IPromiseConstructor) : AC.IPromiseConstructor {
+		errorToBool(psConstructor:SP.IPromiseConstructor) : SP.IPromiseConstructor {
 			return () => {
 				return this.$q((resolve, reject) => {
 					return psConstructor().then(
@@ -77,7 +77,7 @@ module supedidos.common {
 			}
 		}
 
-		private checkPromiseState(args:AC.IPromiseConstructor[], index:number, onStep:Function, onFinish:Function) {
+		private checkPromiseState(args:SP.IPromiseConstructor[], index:number, onStep:Function, onFinish:Function) {
 			if (!args[index]) {
 				return onFinish();
 			}
@@ -89,7 +89,7 @@ module supedidos.common {
 			});
         }
 
-		orSeries(...args:AC.IPromiseConstructor[]) : AC.IPromiseConstructor {
+		orSeries(...args:SP.IPromiseConstructor[]) : SP.IPromiseConstructor {
 			return () => {
 				return this.$q((resolve, reject) => {
 					this.checkPromiseState(args, 0, (state, next) => {
@@ -105,7 +105,7 @@ module supedidos.common {
 			}
 		}
 
-		andSeries(...args:AC.IPromiseConstructor[]) : AC.IPromiseConstructor {
+		andSeries(...args:SP.IPromiseConstructor[]) : SP.IPromiseConstructor {
 			return () => {
 				return this.$q((resolve, reject) => {
 					this.checkPromiseState(args, 0, (state, next) => {
@@ -121,7 +121,7 @@ module supedidos.common {
 			}
 		}
 
-		or(...args:AC.IPromiseConstructor[]) : AC.IPromiseConstructor {
+		or(...args:SP.IPromiseConstructor[]) : SP.IPromiseConstructor {
 			return () => {
 				return this.$q.all(args.map(fn => fn())).then(results => {
 					return results.reduce((acc, curr) => {
@@ -131,7 +131,7 @@ module supedidos.common {
 			}
 		}
 
-		and(...args:AC.IPromiseConstructor[]) : AC.IPromiseConstructor {
+		and(...args:SP.IPromiseConstructor[]) : SP.IPromiseConstructor {
 			return () => {
 				return this.$q.all(args.map(fn => fn())).then(results => {
 					return results.reduce((acc, curr) => {
@@ -168,41 +168,6 @@ module supedidos.common {
 				})
 			);
 		}
-
-		/**
-	     * Compose functions to create a controller function for a state
-	     */
-	    composeCtrl(...composablesFns) {
-	        var injection = _.union.apply(_, composablesFns.map(fn => fn.$inject));
-
-	        composedController.$inject = injection;
-	        function composedController(...args) {
-	            var ctrl = this;
-	            composablesFns.forEach(composableFn => {
-	                var fnInjection = composableFn.$inject.map((module) => {
-	                    return args[injection.indexOf(module)];
-	                });
-	                composableFn.apply(ctrl, fnInjection);
-	            });
-	        };
-	        return composedController;
-	    }
-
-	    /**
-	     * Create a function that injects the angular keys passed in the obj of the parameters
-	     * and expose the keys in the scope named as the value
-	     */
-	    passCtrlData(modules : IInjectionObject) {
-	        var injection = _.union(['$scope'], _.keys(modules));
-	        ctrl.$inject = injection;
-	        function ctrl(...args) {
-	            var $scope = args[0];
-	            _.slice(injection, 1).map((module, index) => {
-	                $scope[modules[module]] = args[index + 1];
-	            });
-	        }
-	        return ctrl;
-	    }
 
 	}
 
