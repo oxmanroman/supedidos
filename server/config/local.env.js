@@ -7,10 +7,11 @@
 
 module.exports = {
   DOMAIN: 'http://localhost:9000',
-  SESSION_SECRET: 'sites-secret',
+  SESSION_SECRET: 'sU19pEdIdOs97',
 
-  FACEBOOK_ID: 'app-id',
-  FACEBOOK_SECRET: 'secret',
+  FACEBOOK_ID: '613358152156063',
+  FACEBOOK_SECRET: '2f90c060cad5f256e3ab975dedf06e5e',
+  
   // Control debug level for modules using visionmedia/debug
   DEBUG: ''
 };

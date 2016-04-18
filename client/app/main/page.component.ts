@@ -21,8 +21,8 @@ module supedidos.main {
 		order: any;
 		location: any;
 
-		static $inject = ['envConfig', 'Geolocation', '$state', 'Order'];
-		constructor(envConfig, Geolocation, private $state, private Order) {
+		static $inject = ['envConfig', 'Geolocation', '$state', 'Order', 'Auth'];
+		constructor(envConfig, Geolocation, private $state, private Order, private Auth) {
 			this.country = envConfig.country;
 			this.order = Order.getLocal();
 
@@ -41,7 +41,11 @@ module supedidos.main {
 					this.$state.go('order.productCategories');
 				});
 			}
-		};
+		}
+
+		login() {
+			this.Auth.login().then(status => console.log('logged in', status));
+		}
 	}
 
 	function mainPageDirective(){

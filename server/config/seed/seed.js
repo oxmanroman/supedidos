@@ -7,19 +7,21 @@
 
 import _ from 'lodash';
 
+import Provider from '../../api/provider/provider.model';
 import ProductCategory from '../../api/product-category/product-category.model';
 import Product from '../../api/product/product.model';
 import MarketCategory from '../../api/market-category/market-category.model';
 import Market from '../../api/market/market.model';
 import User from '../../api/user/user.model';
 
+import providersSeed from './providers';
 import productsSeed from './products';
 import productCategoriesSeed from './product-categories';
 import marketCategoriesSeed from './market-categories';
 import marketsSeed from './markets';
 import usersSeed from './users';
 
-var reset = false;
+var reset = true;
 
 function seedFn(model, data) {
     model.count((err, count) => {
@@ -42,6 +44,7 @@ if (reset) {
     seed = seedFn;
 }
 
+seed(Provider, providersSeed.list);
 seed(ProductCategory, productCategoriesSeed.list);
 seed(Product, productsSeed.list);
 seed(MarketCategory, marketCategoriesSeed.list);

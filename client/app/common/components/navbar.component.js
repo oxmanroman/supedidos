@@ -29,9 +29,9 @@
 		};
 	}
 
-	spNavbarController.$inject = ['Order', '$document', '$scope'];
+	spNavbarController.$inject = ['Order', '$document', '$scope', 'Auth'];
 
-	function spNavbarController(Order, $document, $scope) {
+	function spNavbarController(Order, $document, $scope, Auth) {
 		var ctrl = this;
 
 		var body = angular.element($document[0].body);
@@ -41,6 +41,10 @@
 		});
 
         ctrl.search = Order.getLocal().location.getAddress();
+
+		ctrl.login = function() {
+			Auth.login().then(status => console.log('logged in', status));
+		};
 	}
 
 })();

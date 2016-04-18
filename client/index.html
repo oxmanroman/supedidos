@@ -90,9 +90,8 @@
     <!-- build:js(.tmp) app/app.js -->
       <script src="app/app.js"></script>
       <!-- injector:js -->
-      <script src="app/config/lazy-img.js"></script>
-      <script src="app/common/app-helper.js"></script>
-      <script src="app/common/components/navbar.component.js"></script>
+      <script src="app/config/local-storage.js"></script>
+      <script src="app/common/components/carousel.component.js"></script>
       <script src="app/common/components/stars-rating.component.js"></script>
       <script src="app/common/components/state-loader.component.js"></script>
       <script src="app/common/directives/back-img.directive.js"></script>
@@ -104,11 +103,12 @@
       <script src="app/common/filters/ellipsis.filter.js"></script>
       <script src="app/common/filters/relative-distance.filter.js"></script>
       <script src="app/common/filters/relative-time.filter.js"></script>
+      <script src="app/common/helpers/routes.js"></script>
       <script src="app/common/services/geolocation.service.js"></script>
       <script src="app/common/services/route-allowed.service.js"></script>
       <script src="app/config/env.js"></script>
-      <script src="app/common/components/carousel.component.js"></script>
-      <script src="app/config/local-storage.js"></script>
+      <script src="app/config/lazy-img.js"></script>
+      <script src="app/common/components/navbar.component.js"></script>
       <script src="app/config/restangular.js"></script>
       <script src="app/config/routes.js"></script>
       <script src="app/config/translate.js"></script>
@@ -123,7 +123,10 @@
       <script src="app/order/product.model.js"></script>
       <script src="app/order/routes.js"></script>
       <script src="app/product-category/product-category.model.js"></script>
-      <script src="app/user/auth.service.js"></script>
+      <script src="app/user/auth/auth.service.js"></script>
+      <script src="app/user/auth/interceptor.service.js"></script>
+      <script src="app/user/auth/login.dialog.js"></script>
+      <script src="app/user/model.js"></script>
       <!-- endinjector -->
     <!-- endbuild -->
   </body>
